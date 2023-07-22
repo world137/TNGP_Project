@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <div id="insert_navbar"></div>
     <div id="bodyPart">
         <div id="calPart">
             <input type="text" id="inputValue1" placeholder="Enter value 1">
@@ -15,7 +16,7 @@
             <button id="calbutton" onclick="calculateSum()">Calculate Sum</button>
             <p id="result"></p>
         </div>
-    
+
         <div id="userPart">
             <button onclick="getUser(1)">Get User with ID=1</button>
             <button onclick="getUser(2)">Get User with ID=2</button>
@@ -32,10 +33,16 @@
             <div id="AllFunfact"></div>
         </div>
     </div>
-   
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/frontend/js/main.js"></script>
+<script>
+    $(function () {
+        $("#insert_navbar").load("./component/navbar.html");
+    });
+</script>
+
 
 </html>

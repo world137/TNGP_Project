@@ -14,6 +14,12 @@
 //     xhr.send("value1=" + encodeURIComponent(value1) + "&value2=" + encodeURIComponent(value2));
 // }
 
+$(function () {
+    console.log("hello")
+    // $("#insert_navbar").load("/component/navbar.html")
+    
+})
+
 
 function calculateSum() {
     var value1 = $("#inputValue1").val(); // Using jQuery to get the input values
