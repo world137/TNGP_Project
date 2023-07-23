@@ -102,7 +102,7 @@ func main() {
 
 			// Convert user data to JSON
 			userJSON, err := json.Marshal(Fact)
-			if err != nil {
+			if err == nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
 			}

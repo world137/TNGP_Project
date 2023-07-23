@@ -15,54 +15,18 @@
 // }
 
 $(function () {
-    console.log("hello")
-    // $("#insert_navbar").load("/component/navbar.html")
-    
+    $("#insert_navbar").load("./component/navbar.html");
+    $("#insert_snackbar").load("./component/snackbar.html");    
 })
 
-
-function calculateSum() {
-    var value1 = $("#inputValue1").val(); // Using jQuery to get the input values
-    var value2 = $("#inputValue2").val();
-
-    $.ajax({
-        url: "/", // The backend URL
-        type: "POST",
-        data: { value1: value1, value2: value2 }, // Data to send to the backend
-        dataType: "text",
-        success: function(result) {
-            $("#result").text("Sum: " + result); // Display the result on the page
-        },
-        error: function(xhr, status, error) {
-            console.error("Error:", error);
-        }
-    });
-}
-
-function getUser(userId) {
-    $.ajax({
-        url: "/user/" + userId, // The user API endpoint with user ID as part of the path
-        type: "GET",
-        dataType: "json",
-        success: function(user) {
-            // Display the user data in the userData div
-            $("#userData").html("<p>User ID: " + user.Id + "</p><p>User Name: " + user.Name + "</p>");
-        },
-        error: function(xhr, status, error) {
-            console.error("Error:", error);
-        }
-    });
-}
-
-
-function getFunFact(id) {
+function get_fund_fact(id) {
     $.ajax({
         url: "/unique/" + id, // The user API endpoint with user ID as part of the path
         type: "GET",
         dataType: "json",
         success: function(unique) {
             // Display the user data in the userData div
-            $("#Funfact").html("<p>Name : " + unique.name_th + "</p><p>User Id: " + unique.unique_id + "</p>");
+            $("#fund_fact").html("<p>Name : " + unique.name_th + "</p><p>User Id: " + unique.unique_id + "</p>");
         },
         error: function(xhr, status, error) {
             console.error("Error:", error);
@@ -70,7 +34,7 @@ function getFunFact(id) {
     });
 }
 
-function getAllFunFact(id) {
+function get_all_fund_fact(id) {
     $.ajax({
         url: "/allunique/" + id, // The user API endpoint with user ID as part of the path
         type: "GET",
@@ -82,10 +46,11 @@ function getAllFunFact(id) {
                console.log(response[index])
                html = html + "<p>Name : " + response[index].name_th + "</p><p> Id: " + response[index].unique_id + "</p>"
             }
-            $("#Funfact").html(html)
+            $("#all_fund_fact").html(html)
             // $("#Funfact").html("<p>Name : " + unique.name_th + "</p><p>User Id: " + unique.unique_id + "</p>");
         },
         error: function(xhr, status, error) {
+            error_notification('ไม่สามารถดึงข้อมูลได้')
             console.error("Error:", error);
         }
     });
