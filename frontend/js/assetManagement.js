@@ -1,12 +1,12 @@
 $(function () {
     $("#insert_navbar").load("../component/navbar.html");
     $("#insert_snackbar").load("../component/snackbar.html");
-    get_all_asset_management("C0000000021")
+    get_all_asset_management()
 })
 
-function get_all_asset_management(id) {
+function get_all_asset_management() {
     $.ajax({
-        url: "/allAssetManagement/" + id,
+        url: "/getallAssetManagement/",
         type: "GET",
         dataType: "json",
         success: function (response) {
