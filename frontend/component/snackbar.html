@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <style>
+    :root {
+      --error: #E32636;
+      --success: #02d300;
+      --warning: #dbaf00;
+      --white: #ffffff;
+    }
+
+    #error_snackbar,
+    #success_snackbar,
+    #warning_snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      color: var(--white);
+      border-radius: 20px;
+      text-align: center;
+      padding: 16px;
+      position: fixed;
+      z-index: 130;
+      right: 30px;
+      top: 30px;
+      font-size: 17px;
+    }
+
+    #error_snackbar {
+      background-color: var(--error)
+    }
+
+    #success_snackbar {
+      background-color: var(--success)
+    }
+
+    #warning_snackbar {
+      background-color: var(--warning);
+    }
+
+    #error_snackbar.show,
+    #success_snackbar.show,
+    #warning_snackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+      from {
+        top: 0;
+        opacity: 0;
+      }
+
+      to {
+        top: 30px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadein {
+      from {
+        top: 0;
+        opacity: 0;
+      }
+
+      to {
+        top: 30px;
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes fadeout {
+      from {
+        top: 30px;
+        opacity: 1;
+      }
+
+      to {
+        top: 0;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeout {
+      from {
+        top: 30px;
+        opacity: 1;
+      }
+
+      to {
+        top: 0;
+        opacity: 0;
+      }
+    }
+  </style>
+
+  <div id="error_snackbar"></div>
+  <div id="success_snackbar"></div>
+  <div id="warning_snackbar"></div>
+  <script>
+    function success_notification(text) {
+      var snackbar = document.getElementById("success_snackbar");
+      snackbar.innerHTML = text
+      snackbar.className = "show"
+      setTimeout(function () { snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+    }
+    function error_notification(text) {
+      var snackbar = document.getElementById("error_snackbar");
+      snackbar.innerHTML = text
+      snackbar.className = "show"
+      setTimeout(function () { snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+    }
+    function warning_notification(text) {
+      var snackbar = document.getElementById("warning_snackbar");
+      snackbar.innerHTML = text
+      snackbar.className = "show"
+      setTimeout(function () { snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+    }
+
+  </script>
+</body>
+
+</html>
