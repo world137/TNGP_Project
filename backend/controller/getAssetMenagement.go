@@ -14,8 +14,8 @@ type FunFact struct {
 	Name_en       string `json:"name_en"`
 }
 
-func GetAll() {
-	http.HandleFunc("/allAssetManagement/", func(w http.ResponseWriter, r *http.Request) {
+func AllAssetManageMent() {
+	http.HandleFunc("/getallAssetManagement/", func(w http.ResponseWriter, r *http.Request) {
 
 		if r.Method == http.MethodGet {
 			apiUrl := "https://api.sec.or.th/FundFactsheet/fund/amc"
