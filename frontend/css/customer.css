@@ -1,0 +1,78 @@
+:root {
+    --white: #ffffff;
+    --text_hover: #EC008C;
+    --black: #000000;
+}
+
+#navbar_dropdown_customer_link,
+#customer_link {
+    color: var(--text_hover);
+}
+
+#navbar_dropdown_customer_link:active,
+#customer_link:active {
+    color: var(--white);
+}
+
+#content {
+    margin: 20px;
+}
+#user_part{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.search_part{
+    display: flex;
+    gap: 10px;
+    width: 40%;
+    align-items: center;
+}
+#search_input{
+    text-align: center;
+    width: 20%;
+}
+.search_button{
+    border-radius: 10px;
+    border: 1px solid var(--black);
+
+}
+
+#user_card_part {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+}
+
+.user_card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 15px;
+    gap: 5px;
+}
+
+
+.view_more {
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.view_more:hover,
+.view_more:active {
+    color: var(--text_hover);
+    border: 1px solid var(--text_hover);
+}

@@ -1,10 +1,16 @@
 :root{
-    --hover: #ffecfe;
+    --white: #ffffff;
+    --text_hover: #EC008C;
 }
 
-#navbarDropdownMenuLink,
+#navbar_dropdown_asset_management_link,
 #asset_management_link{
-    color: #EC008C;
+    color: var(--text_hover);
+}
+
+#navbar_dropdown_asset_management_link:active,
+#asset_management_link:active{
+    color: var(--white);
 }
 
 #content {
@@ -24,7 +30,8 @@
 }
 .card-body:hover{
     background-color: var(--hover);
-    cursor: pointer
+    cursor: pointer;
+    transition: all .7s;
 }
 .card {
     border: none !important;
