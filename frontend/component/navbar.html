@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-    .navbar_name{
+    :root{
+        --background_hover:#bdbdbd;
+    }
+    .navbar_name {
         display: flex;
         gap: 5px;
         align-items: center;
+    }
+
+    .nav-item:active,
+    .dropdown-item:active {
+        background-color: var(--background_hover);
+    }
+    .nav-item:active{
+        border-radius: 15px;
     }
 </style>
 
@@ -23,14 +34,25 @@
                 <li class="nav-item">
                     <a class="nav-link" id="homepage" href="../../frontend/index.html">หน้าหลัก</a>
                 </li>
-                <li class="nav-item dropdown" id="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown_asset_management_link" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         กองทุน
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" id="asset_management_link" href="../../frontend/html/assetManagement.html">บริษัทหลักทรัพย์จัดกากองทุน</a>
+                    <div class="dropdown-menu" aria-labelledby="navbar_dropdown_asset_management_link">
+                        <a class="dropdown-item" id="asset_management_link"
+                            href="../../frontend/html/assetManagement.html">บริษัทหลักทรัพย์จัดกากองทุน</a>
                         <a class="dropdown-item" id="fund_link" href="#">กองทุน</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbar_dropdown_customer_link" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        ลูกค้า
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbar_dropdown_customer_link">
+                        <a class="dropdown-item" id="customer_link"
+                            href="../../frontend/html/customer.html">ค้นหาลูกค้า</a>
                     </div>
                 </li>
             </ul>
