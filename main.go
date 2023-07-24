@@ -20,6 +20,8 @@ func main() {
 	controller.FactSheet()
 	controller.SetRiskScore(db)
 	controller.NAV()
+  controller.Risk()
+
 
 	// Start the server on port 8080
 	defer http.ListenAndServe(":8080", nil)
@@ -92,11 +94,15 @@ func createCustomer(stroage provider.StroageProvider) {
 	}
 	for _, customer := range customerArr {
 
+	controller.SetRiskScore()
+
+
 		err := stroage.Create(customer)
 		if err != nil {
 			return
 		}
 
 	}
+
 
 }
