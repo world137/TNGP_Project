@@ -23,7 +23,7 @@ function get_customer_data(citizenId) {
                     error_notification('ไม่พบหมายเลขบัตรประชาชน')
                     return
                 }
-                localStorage.clear
+                localStorage.clear()
                 
                 let name = response.NameTitle + response.Name + " " + response.Surname
                 let tel = response.Tel
