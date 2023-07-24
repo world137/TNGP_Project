@@ -15,7 +15,7 @@ func main() {
 
 	controller.CustomerData()
 
-	controller.FactSheet("M0000_2553")
+	controller.FactSheet()
 
 	// Start the server on port 8080
 	defer http.ListenAndServe(":8080", nil)
