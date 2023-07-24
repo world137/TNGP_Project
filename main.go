@@ -12,7 +12,11 @@ func main() {
 
 	controller.AllAssetManageMent()
 	controller.AllFund()
+
 	controller.CustomerData()
+
+	controller.FactSheet("M0000_2553")
+
 	// Start the server on port 8080
 	defer http.ListenAndServe(":8080", nil)
 }
