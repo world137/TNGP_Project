@@ -35,3 +35,8 @@ function send_proj_id(proj_id) {
     localStorage.setItem("nav_date", "2023-07-20")
     window.location.href = "../../frontend/html/fundDetail.html" //
 }
+
+function send_fund_name(proj_name_th, proj_name_en){
+    localStorage.setItem("proj_name_th", proj_name_th)
+    localStorage.setItem("proj_name_en", proj_name_en)
+}
