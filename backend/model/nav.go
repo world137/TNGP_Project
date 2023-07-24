@@ -5,4 +5,5 @@ type NAV struct {
 	Nav_date      string  `json:"nav_date"`
 	Net_asset     float64 `json:"net_asset"`
 	Last_val      float64 `json:"last_val"`
+	Previous_val  float64 `json:"previous_val"`
 }
