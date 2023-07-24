@@ -17,6 +17,9 @@ func main() {
 
 	controller.FactSheet()
 
+
+	controller.SetRiskScore()
+
 	controller.NAV()
 
 	controller.Risk()

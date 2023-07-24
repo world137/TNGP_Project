@@ -1,0 +1,25 @@
+:root{
+    --black : #000000;
+}
+
+#content{
+    margin: 20px;
+}
+#test_part{
+    border-radius: 10px;
+    border: 1px solid var(--black) ;
+    padding: 20px;
+}
+.test_choice{
+    margin-left: 10px;
+}
+#test_part{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+#button_part{
+    display: flex;
+    justify-content: end;
+    margin-top: 15px;
+}
