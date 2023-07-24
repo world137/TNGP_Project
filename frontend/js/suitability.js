@@ -54,7 +54,8 @@ function setUserData(riskScore,id) {
             type: "POST",
             dataType: "json",
             success: function (response) {
-                console.log(response)
+                console.log()
+                localStorage.setItem("risk",response)
                 window.location.href = "../../frontend/html/customerInfo.html"
             },
             error: function (xhr, status, error) {

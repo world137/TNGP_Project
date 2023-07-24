@@ -1,15 +1,16 @@
 package controller
 
 import (
-	"TNGP/backend/data"
 	"TNGP/backend/model"
+	"TNGP/backend/provider"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"strings"
 )
 
-func CustomerData() {
+func CustomerData(stroage provider.StroageProvider) {
+
 	http.HandleFunc("/customerdata/", func(w http.ResponseWriter, r *http.Request) {
 
 		if r.Method == http.MethodGet {
@@ -18,7 +19,7 @@ func CustomerData() {
 			id := pathParts[len(pathParts)-1]
 
 			var returncustomer model.Customer
-			customerList := data.GetCustomerList()
+			customerList, err := stroage.ReadAll()
 			for _, v := range customerList {
 				if v.CitizenId == id {
 					returncustomer = v
