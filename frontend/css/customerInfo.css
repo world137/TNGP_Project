@@ -1,0 +1,66 @@
+:root {
+    --black: #000000;
+}
+
+#content {
+    margin: 20px;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.customer_info {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 15px;
+    gap: 20px;
+}
+
+#customer_img {
+    width: 15%;
+}
+
+#user_content {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+#content_left {
+    width: 50%;
+}
+
+#content_right {
+    width: 50%;
+}
+
+#customer_status {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+#risk,
+#experience {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    width: 50%;
+    align-items: center;
+    padding: 20px;
+}
+
+#risk_title,#experience_title {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
