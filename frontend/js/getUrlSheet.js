@@ -4,7 +4,7 @@ $(function () {
     let proj_id = localStorage.getItem("proj_id")
     let proj_name_th = localStorage.getItem("proj_name_th")
     let proj_name_en = localStorage.getItem("proj_name_en")
-    localStorage.clear
+    localStorage.clear()
     get_factsheet(proj_id, proj_name_th, proj_name_en)
 })
 

@@ -26,7 +26,7 @@ function showCustomerData() {
 
 
 
-    localStorage.clear
+    localStorage.clear()
     console.log(risk)
 
     if (risk != "") {
@@ -69,4 +69,8 @@ $("#experience_test").on("click", function () {
     localStorage.setItem("customername", customername)
 
     window.location.href = "../../frontend/html/experience.html"
+})
+
+$("#fund_recommend").on("click", function () {
+    window.location.href = "../../frontend/html/recommend.html"
 })

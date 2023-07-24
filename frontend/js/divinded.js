@@ -2,7 +2,7 @@ $(function () {
     $("#insert_navbar").load("../component/navbar.html");
     $("#insert_snackbar").load("../component/snackbar.html");
     let proj_id = localStorage.getItem("proj_id")
-    localStorage.clear
+    localStorage.clear()
     get_dividend(proj_id)
 })
 
