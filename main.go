@@ -16,12 +16,13 @@ func main() {
 	createCustomer(db)
 	controller.AllAssetManageMent()
 	controller.AllFund()
+
 	controller.CustomerData(db)
 	controller.FactSheet()
 	controller.SetRiskScore(db)
 	controller.NAV()
   controller.Risk()
-
+	controller.DividendPolicy()
 
 	// Start the server on port 8080
 	defer http.ListenAndServe(":8080", nil)
@@ -103,6 +104,7 @@ func createCustomer(stroage provider.StroageProvider) {
 		}
 
 	}
+
 
 
 }
