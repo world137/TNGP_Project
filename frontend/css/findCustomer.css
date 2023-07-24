@@ -1,0 +1,41 @@
+:root{
+    --background: #ffc4e9;
+}
+
+ิbody{
+    height: 100vh;
+}
+#content{
+    height: 100vh;
+    display: flex;
+}
+
+#rignt_part{
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#right_content{
+    display: flex;
+    flex-direction: column;
+    gap: 40vh;
+}
+
+#title_text{
+    text-align: center;
+}
+
+#button_part{
+    display: flex;
+    justify-content: end;
+}
+
+#left_part{
+    width: 50%;
+    background-color: var(--background);
+}
+
+
