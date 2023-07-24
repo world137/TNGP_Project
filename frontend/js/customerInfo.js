@@ -17,17 +17,17 @@ function showCustomerData() {
     let experienceTest = localStorage.getItem("experienceTest")
     let experience = localStorage.getItem("experience")
 
-    document.getElementById("name").innerHTML = "ชื่อ : " +name
+    document.getElementById("name").innerHTML = "ชื่อ : " + name
     document.getElementById("tel").innerHTML = "เบอร์โทร : " + tel
-    document.getElementById("email").innerHTML = "อีเมล : " +email
-    document.getElementById("dob").innerHTML = "วันเกิด  : " +dob
-    document.getElementById("job").innerHTML = "อาชีพ : " +job
+    document.getElementById("email").innerHTML = "อีเมล : " + email
+    document.getElementById("dob").innerHTML = "วันเกิด  : " + dob
+    document.getElementById("job").innerHTML = "อาชีพ : " + job
     document.getElementById("salary").innerHTML = "เงินเดือน : " + salary
 
 
 
     localStorage.clear
-
+    console.log(risk)
 
     if (risk != "") {
         if (risk == "0") {
@@ -41,32 +41,32 @@ function showCustomerData() {
             document.getElementById("experience_data").innerHTML = "N/A"
         } else {
             let experience = localStorage.getItem("experience")
-            if (experience == "true"){
+            if (experience == "true") {
                 document.getElementById("experience_data").innerHTML = "มีประสบการณ์การลงทุน"
-            }else{
+            } else {
                 document.getElementById("experience_data").innerHTML = "ไม่มีประสบการณ์การลงทุน"
             }
 
         }
     }
-    if (risk != "0" && experienceTest== "true"){
+    if (risk != "0" && experienceTest == "true") {
         document.getElementById("under").style.display = "flex"
-    }else{
+    } else {
         document.getElementById("under").style.display = "none"
     }
-    localStorage.setItem("id",id)
+    localStorage.setItem("id", id)
 }
 
 
-$("#risk_test").on("click",function () {
-    localStorage.setItem("customername",customername)
-    
+$("#risk_test").on("click", function () {
+    localStorage.setItem("customername", customername)
 
-    window.location.href="../../frontend/html/suitability.html"
+
+    window.location.href = "../../frontend/html/suitability.html"
 })
 
-$("#experience_test").on("click",function () {
-    localStorage.setItem("customername",customername)
+$("#experience_test").on("click", function () {
+    localStorage.setItem("customername", customername)
 
-    window.location.href="../../frontend/html/experience.html"
+    window.location.href = "../../frontend/html/experience.html"
 })
