@@ -44,8 +44,17 @@
 #customer_status {
     width: 100%;
     display: flex;
+    flex-direction: column;
     gap: 10px;
-    justify-content: space-between;
+}
+#top{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+#under{
+    display: flex;
+    justify-content: end;
 }
 
 #risk,

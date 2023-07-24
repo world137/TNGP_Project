@@ -25,12 +25,12 @@ function showCustomerData() {
 
     localStorage.clear
 
+
     if (risk != "") {
         if (risk == "0") {
             document.getElementById("risk_data").innerHTML = "N/A"
         } else {
-            document.getElementById("risk_data").innerHTML = "N/A"
-
+            document.getElementById("risk_data").innerHTML = risk
         }
     }
     if (experienceTest != "") {
@@ -45,6 +45,12 @@ function showCustomerData() {
             }
 
         }
+    }
+    if (risk != "0" && experienceTest== "true"){
+        document.getElementById("under").style.display = "flex"
+    }else{
+        document.getElementById("under").style.display = "none"
+
     }
 }
 
