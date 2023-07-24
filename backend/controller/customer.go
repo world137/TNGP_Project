@@ -13,14 +13,20 @@ func CustomerData() {
 
 		customerList := []model.Customer{
 			{
+				NameTitle: "นาย",
 				Name:      "สมชาย",
 				Surname:   "จริง",
-				CitizenId: "1232323456789",
+				CitizenId: "2232323456789",
 				DOB:       "01/01/2000",
 				MinIncome: 10000,
 				MaxIncome: 30000,
 				Tel:       "0988787654",
 				Email:     "test@gmail.com",
+				Job:       "BA",
+				Risk:      5,
+
+				ExperienceTest: true,
+				Experience:     true,
 				Account: []model.Account{
 					{
 						AccountId:      "001a",
@@ -39,14 +45,19 @@ func CustomerData() {
 				},
 			},
 			{
-				Name:      "สมหญิง",
-				Surname:   "จริง",
-				CitizenId: "2212323456789",
-				DOB:       "01/01/2000",
-				MinIncome: 10000,
-				MaxIncome: 30000,
-				Tel:       "0988398454",
-				Email:     "test2@gmail.com",
+				NameTitle:      "นาง",
+				Name:           "สมหญิง",
+				Surname:        "จริง",
+				CitizenId:      "2212323456789",
+				DOB:            "01/01/2000",
+				MinIncome:      10000,
+				MaxIncome:      30000,
+				Tel:            "0988398454",
+				Email:          "test2@gmail.com",
+				Job:            "BA",
+				Risk:           0,
+				ExperienceTest: false,
+				Experience:     false,
 				Account: []model.Account{
 					{
 						AccountId:      "001a",
