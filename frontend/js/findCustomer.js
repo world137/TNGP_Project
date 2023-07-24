@@ -25,17 +25,17 @@ function get_customer_data(citizenId) {
                 }
                 localStorage.clear
                 
-                let name = "ชื่อ : " + response.NameTitle + response.Name + " " + response.Surname
-                let tel = "เบอร์โทร : " + response.Tel
-                let email = "อีเมล : " + response.Email
-                let dob = "วันเกิด  : " + response.DOB
-                let job = "อาชีพ : " + response.Job
-                let salary = "เงินเดือน : " + response.MinIncome + " - " + response.MaxIncome
+                let name = response.NameTitle + response.Name + " " + response.Surname
+                let tel = response.Tel
+                let email =  response.Email
+                let dob = response.DOB
+                let job =  response.Job
+                let salary = response.MinIncome + " - " + response.MaxIncome
                 let risk = response.Risk
                 let experienceTest = response.ExperienceTest
                 let experience = response.Experience
+                let id = response.CitizenId
             
-                
                 localStorage.setItem("name",name)
                 localStorage.setItem("tel",tel)
                 localStorage.setItem("email",email)
@@ -45,7 +45,8 @@ function get_customer_data(citizenId) {
                 localStorage.setItem("risk",risk)
                 localStorage.setItem("experienceTest",experienceTest)
                 localStorage.setItem("experience",experience)
-
+                localStorage.setItem("id",id)
+                // console.log(id)
                 window.location.href = "../../frontend/html/customerInfo.html"
             },
             error: function (xhr, status, error) {
