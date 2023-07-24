@@ -21,7 +21,7 @@ func main() {
 	controller.FactSheet()
 	controller.SetRiskScore(db)
 	controller.NAV()
-  controller.Risk()
+	controller.Risk()
 	controller.DividendPolicy()
 
 	// Start the server on port 8080
@@ -95,16 +95,11 @@ func createCustomer(stroage provider.StroageProvider) {
 	}
 	for _, customer := range customerArr {
 
-	controller.SetRiskScore()
-
-
 		err := stroage.Create(customer)
 		if err != nil {
 			return
 		}
 
 	}
-
-
 
 }
