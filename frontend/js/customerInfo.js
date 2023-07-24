@@ -3,7 +3,10 @@ $(function () {
     $("#insert_snackbar").load("../component/snackbar.html");
     showCustomerData()
 })
+
+var customername
 function showCustomerData() {
+    customername = localStorage.getItem("name")
     let name = localStorage.getItem("name")
     let tel = localStorage.getItem("tel")
     let email = localStorage.getItem("email")
@@ -14,12 +17,12 @@ function showCustomerData() {
     let experienceTest = localStorage.getItem("experienceTest")
     let experience = localStorage.getItem("experience")
 
-    document.getElementById("name").innerHTML = name
-    document.getElementById("tel").innerHTML = tel
-    document.getElementById("email").innerHTML = email
-    document.getElementById("dob").innerHTML = dob
-    document.getElementById("job").innerHTML = job
-    document.getElementById("salary").innerHTML = salary
+    document.getElementById("name").innerHTML = "ชื่อ : " +name
+    document.getElementById("tel").innerHTML = "เบอร์โทร : " + tel
+    document.getElementById("email").innerHTML = "อีเมล : " +email
+    document.getElementById("dob").innerHTML = "วันเกิด  : " +dob
+    document.getElementById("job").innerHTML = "อาชีพ : " +job
+    document.getElementById("salary").innerHTML = "เงินเดือน : " + salary
 
 
 
@@ -50,8 +53,20 @@ function showCustomerData() {
         document.getElementById("under").style.display = "flex"
     }else{
         document.getElementById("under").style.display = "none"
-
     }
+    localStorage.setItem("id",id)
 }
 
 
+$("#risk_test").on("click",function () {
+    localStorage.setItem("customername",customername)
+    
+
+    window.location.href="../../frontend/html/suitability.html"
+})
+
+$("#experience_test").on("click",function () {
+    localStorage.setItem("customername",customername)
+
+    window.location.href="../../frontend/html/experience.html"
+})

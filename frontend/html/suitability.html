@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Management</title>
+    <link rel="stylesheet" type="text/css" href="/frontend/css/suitability.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="bodyPart">
+        <div id="insert_navbar"></div>
+        <div id="content">
+            <div id="headder_content">
+                <h5>ประเมินความเมหาะสมในการลงทุน</h5>
+                <h5 id="customer_name">ชื่อผู้ถือหน่วยลงทุน</h5>
+            </div>
+            <div id="test_part">
+                <!-- 1 -->
+                <div class="test_number">
+                    <p>1. ปัจจุบันท่านอายุเท่าไหร่</p>
+                    <div class="test_choice" id="no1">
+                        <div class="choice">
+                            <input type="radio" id="no1_1" name="no1" value="1">
+                            <label>ตั้งแต่ 60 ปีขึ้นไป</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no1_2" name="no1" value="2">
+                            <label>45-59 ปี</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no1_3" name="no1" value="3">
+                            <label>35-44 ปี</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no1_4" name="no1" value="4">
+                            <label>น้อยกว่า 35 ปี</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="test_number">
+                    <p>2. ปัจจุบันท่านมีภาระทางการเงินและค่าใช้จ่ายประจำ เช่น ค่าผ่อนบ้าน รถ ค่าใช้จ่ายส่วนตัว
+                        และค่าเลี้ยงดูครอบครัวเป็นสัดส่วนเท่าใด</p>
+                    <div class="test_choice" id="no2">
+                        <div class="choice">
+                            <input type="radio" id="no2_1" name="no2" value="1">
+                            <label>มากกว่าร้อยละ 75 ของรายได้ทั้งหมด</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no2_2" name="no2" value="2">
+                            <label>ระหว่างร้อยละ 50 ถึงร้อยละ 75 ของรายได้ทั้งหมด</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no2_3" name="no2" value="3">
+                            <label>ตั้งแต่ร้อยละ 25 แต่น้อยกว่าร้อยละ 50 ของรายได้ทั้งหมด</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no2_4" name="no2" value="4">
+                            <label>น้อยกว่าร้อยละ 25 ของรายได้ทั้งหมด</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="test_number">
+                    <p>3. ท่านมีสถานภาพทางการเงินในปัจจุบันอย่างไร</p>
+                    <div class="test_choice" id="no3">
+                        <div class="choice">
+                            <input type="radio" id="no3_1" name="no3" value="1">
+                            <label>มีทรัพย์สินน้อยกว่าหนี้สิน</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no3_2" name="no3" value="2">
+                            <label>มีทรัพย์สินเท่ากับหนี้สิน</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no3_3" name="no3" value="3">
+                            <label>มีทรัพย์สินมากกว่าหนี้สิน</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no3_4" name="no3" value="4">
+                            <label>มีความมั่นใจว่ามีเงินออมหรือเงินลงทุนเพียงพอสำหรับการใช้ชีวิตหลังเกษียณอายุแล้ว</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="test_number">
+                    <p>4. ท่านเคยมีประสบการณ์หรือมีความรู้ในการลงทุนในทรัพย์สินกลุ่มใดดังต่อไปนี้บ้าง
+                        สามารถเลือกได้มากกว่า 1 ข้อ (คิดคะแนนโดยเลือกข้อที่คะแนนสูงสุด)</p>
+                    <div class="test_choice" id="no4">
+                        <div class="choice">
+                            <input type="radio" id="no4_1" name="no4" value="1">
+                            <label>เงินฝากธนาคาร</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no4_2" name="no4" value="2">
+                            <label>พันธบัตรรัฐบาลหรือกองทุนรวมพันธบัตรรัฐบาล</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no4_3" name="no4" value="3">
+                            <label>หุ้นกู้หรือกองทุนรวมตราสารหนี้</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no4_4" name="no4" value="4">
+                            <label>หุ้นสามัญหรือกองทุนรวมหุ้นหรือสินทรัพย์อื่นที่มีความเสี่ยงสูง</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="test_number">
+                    <p>5. ระยะเวลาที่ท่านคาดว่าจะไม่มีความจำเป็นต้องใช้เงินลงทุนนี้</p>
+                    <div class="test_choice" id="no5">
+                        <div class="choice">
+                            <input type="radio" id="no5_1" name="no5" value="1">
+                            <label>ไม่เกิน 1 ปี</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no5_2" name="no5" value="2">
+                            <label>ตั้งแต่ 1 แต่น้อยกว่า 3 ปี</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no5_3" name="no5" value="3">
+                            <label>ตั้งแต่ 3 ปี ถึง 5 ปี</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no5_4" name="no5" value="4">
+                            <label>มากกว่า 5 ปี</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- 6 -->
+                <div class="test_number">
+                    <p>6. ความสามารถในการรับความเสี่ยงของท่านคือ</p>
+                    <div class="test_choice" id="no6">
+                        <div class="choice">
+                            <input type="radio" id="no6_1" name="no6" value="1">
+                            <label>เน้นเงินต้นต้องปลอดภัยและได้รับผลตอบแทนสม่ำเสมอแต่ต่ำได้</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no6_2" name="no6" value="2">
+                            <label>เน้นโอกาสได้รับผลตอบแทนที่สม่ำเสมอแต่อาจเสี่ยงที่จะสูญเงินต้นได้บ้าง</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no6_3" name="no6" value="3">
+                            <label>เน้นโอกาสได้รับผลตอบแทนที่สูงขึ้นแต่อาจเสี่ยงที่จะสูญเสียเงินต้นได้มากขึ้น</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no6_4" name="no6" value="4">
+                            <label>เน้นผลตอบแทนสูงสุดในระยะยาวแต่อาจเสี่ยงที่จะสูญเงินต้นส่วนใหญ่ได้</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- 7 -->
+                <div class="test_number">
+                    <p>7. เมื่อพิจารณารูปแสดงตัวอย่างผลตอบแทนของกลุ่มการลงทุนที่อาจเกิดขึ้นด้านล่าง
+                        ท่านเต็มใจที่จะลงทุนในกลุ่มการลงทุนใดมากที่สุด</p>
+                    <div class="test_choice" id="no7">
+                        <div class="choice">
+                            <input type="radio" id="no7_1" name="no7" value="1">
+                            <label>กลุ่มการลงทุนที่ 1 มีโอกาสได้รับผลตอบแทน 2.5% โดยไม่ขาดทุนเลย</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no7_2" name="no7" value="2">
+                            <label>กลุ่มการลงทุนที่ 2 มีโอกาสได้รับผลตอบแทนสูงสุด 7% แต่อาจมีผลขาดทุนได้ถึง 1%</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no7_3" name="no7" value="3">
+                            <label>กลุ่มการลงทุนที่ 3 มีโอกาสได้รับผลตอบแทนสูงสุด 15% แต่อาจมีผลขาดทุนได้ถึง 5%</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no7_4" name="no7" value="4">
+                            <label>กลุ่มการลงทุนที่ 4 มีโอกาสได้รับผลตอบแทนสูงสุด 25% แต่อาจมีผลขาดทุนได้ถึง 15%</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- 8 -->
+                <div class="test_number">
+                    <p>8. ถ้าท่านเลือกลงทุนในทรัพย์สินที่มีโอกาสได้รับผลตอบแทนมากแต่มีโอกาสขาดทุนสูงด้วยเช่นกัน ท่านจะรู้สึกอย่างไร</p>
+                    <div class="test_choice" id="no8">
+                        <div class="choice">
+                            <input type="radio" id="no8_1" name="no8" value="1">
+                            <label>กังวลและตื่นตระหนกกลัวขาดทุน</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no8_2" name="no8" value="2">
+                            <label>ไม่สบายใจแต่พอเข้าใจได้บ้าง</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no8_3" name="no8" value="3">
+                            <label>เข้าใจและรับความผันผวนได้ในระดับหนึ่ง</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no8_4" name="no8" value="4">
+                            <label>ไม่กังวลกับโอกาสขาดทุนสูงและหวังกับผลตอบแทนที่อาจจะได้รับสูงขึ้น</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- 9 -->
+                <div class="test_number">
+                    <p>9. ท่านจะรู้สึกกังวล/รับไม่ได้เมื่อมูลค่าเงินลงทุนของท่านมีการปรับตัวลงในสัดส่วนเท่าใด
+                    </p>
+                    <div class="test_choice" id="no9">
+                        <div class="choice">
+                            <input type="radio" id="no9_1" name="no9" value="1">
+                            <label>5% หรือน้อยกว่า</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no9_2" name="no9" value="2">
+                            <label>5% หรือน้อยกว่า</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no9_3" name="no9" value="3">
+                            <label>มากกว่า 10%-20%</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no9_4" name="no9" value="4">
+                            <label>มากกว่า 20% ขึ้นไป</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10 -->
+                <div class="test_number">
+                    <p>10. หากปีที่แล้วท่านลงทุนไป 100,000 บาท ปีนี้ท่านพบว่ามูลค่าเงินลงทุนลดเหลือ 85,000 บาท ท่านจะทำอย่างไร
+                    </p>
+                    <div class="test_choice" id="no10">
+                        <div class="choice">
+                            <input type="radio" id="no10_1" name="no10" value="1">
+                            <label>ตกใจและต้องการขายการลงทุนที่เหลือทิ้ง</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no10_2" name="no10" value="2">
+                            <label>กังวลใจและจะปรับเปลี่ยนการลงทุนในบางส่วนไปในทรัพย์สินที่เสี่ยงน้อยลง</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no10_3" name="no10" value="3">
+                            <label>อดทนถือต่อไปได้ และรอผลตอบแทนปรับตัวกลับมา</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no10_4" name="no10" value="4">
+                            <label>ยังมั่นใจเพราะเข้าใจว่าต้องลงทุนระยะยาวและจะเพิ่มเงินลงทุนในแบบเดิมเพื่อเฉลี่ยต้นทุน</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- 11 -->
+                <div class="test_number">
+                    <p>11. หากการลงทุนในสัญญาซื้อขายล่วงหน้า (อนุพันธ์) และหุ้นกู้ที่มีอนุพันธ์แฝงประสบความสำเร็จ ท่านจะได้รับผลตอบแทนในอัตราที่สูงมาก แต่หากการลงทุนล้มเหลว ท่านอาจจะสูญเสียเงินลงทุนทั้งหมดและอาจต้องลงเงินชดเชยเพิ่มบางส่วน ท่านยอมรับได้เพียงใด (ไม่นำมาคิดคะแนน)
+                    </p>
+                    <div class="test_choice" id="no11">
+                        <div class="choice">
+                            <input type="radio" id="no11_1" name="no11" value="1">
+                            <label>ไม่ได้</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no11_2" name="no11" value="2">
+                            <label>ได้</label>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- 12 -->
+                <div class="test_number">
+                    <p>12. นอกเหนือจากความเสี่ยงในการลงทุนแล้ว ท่านสามารถรับความเสี่ยงด้านอัตราแลกเปลี่ยนได้เพียงใด (ไม่นำมาคิดคะแนน)
+                    </p>
+                    <div class="test_choice" id="no12">
+                        <div class="choice">
+                            <input type="radio" id="no12_1" name="no12" value="1">
+                            <label>ไม่ได้</label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" id="no12_2" name="no12" value="2">
+                            <label>ได้</label>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+            <div id="button_part">
+                <button id="submit" class="btn btn-secondary">ส่งแบบประเมิน</button>
+            </div>
+            
+        </div>
+
+        <div id="insert_snackbar"></div>
+    </div>
+</body>
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<script src="/frontend/js/suitability.js"></script>
+
+</html>
