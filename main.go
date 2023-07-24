@@ -14,8 +14,10 @@ func main() {
 	controller.AllFund()
 	controller.CustomerData()
 	controller.FactSheet()
+	controller.SetRiskScore()
 	controller.NAV()
 	controller.DividendPolicy()
+
 
 	// Start the server on port 8080
 	defer http.ListenAndServe(":8080", nil)
