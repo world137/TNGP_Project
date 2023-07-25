@@ -2,7 +2,7 @@ $(function () {
     $("#insert_navbar").load("../component/navbar.html");
     $("#insert_snackbar").load("../component/snackbar.html");
     let proj_id = localStorage.getItem("proj_id")
-    localStorage.clear()
+    //localStorage.clear()
     get_dividend(proj_id)
 })
 
@@ -13,8 +13,8 @@ function get_dividend(proj_id){
             type: "GET",
             dataType: "json",
             success: function (response) {
-                console.log(response[1])
-                var dividend = Translate(response[1].dividend_policy)
+                console.log(response)
+                var dividend = Translate(response.dividend_policy)
 
                 $("#dividend").append( `<div> นโยบายการจ่ายเงินปันผล:${dividend}</div>`)
             },
