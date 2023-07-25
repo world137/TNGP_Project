@@ -14,18 +14,57 @@ function show_fee(proj_id) {
             type: "GET",
             dataType: "json",
             success: function (response) {
-                console.log("Fee = "+response)
+                console.log("Fee = " + response)
 
                 data = response;
 
                 $("#fee").empty();
 
-                for (let index = 0; index < data.length; index++) {
-                    if (response[index].rate != "-") {
-                        $("#fee").append("<div><h6>" + data[index].class_abbr_name + "</h6><p>" + data[index].fee_type_desc + "</p><p>" + data[index].rate + "</p><p>" + data[index].rate_unit + "</p></div></div>")
-                    }
+                var feeClassAHeader = ""
+                var feeClassDHeader = ""
+                var feeClassEHeader = ""
+                var feeClassless = ""
+                var feeClassA = ""
+                var feeClassD = ""
+                var feeClassE = ""
 
+                for (let index = 0; index < data.length; index++) {
+                    if (data[index].rate != "-" && data[index].class_abbr_name.endsWith("-")) {
+                        feeClassless += "<div>"+data[index].fee_type_desc + ": " + data[index].rate + "</div>";
+                    }
+                    else if (data[index].rate != "-" && data[index].class_abbr_name.endsWith("-A")) {
+                        feeClassAHeader = data[index].class_abbr_name;
+                        feeClassA += "<div>"+data[index].fee_type_desc + ": " + data[index].rate +"</div>";
+                    }
+                    else if (data[index].rate != "-" && data[index].class_abbr_name.endsWith("-D")) {
+                        feeClassDHeader = data[index].class_abbr_name;
+                        feeClassD += "<div>"+data[index].fee_type_desc + ": " + data[index].rate +"</div>";
+                    }
+                    else if (data[index].rate != "-" && data[index].class_abbr_name.endsWith("-E")) {
+                        feeClassEHeader = data[index].class_abbr_name;
+                        feeClassE += "<div>"+data[index].fee_type_desc + ": " + data[index].rate +"</div>";
+                    }
                 }
+
+                if(feeClassless != ""){
+                    $("#feeClassless").append(feeClassless)
+                }
+
+                if(feeClassAHeader != "" && feeClassA != ""){
+                    $("#feeClassA").append(feeClassAHeader)
+                    $("#feeClassA").append(feeClassA)
+                }
+
+                if(feeClassDHeader != "" && feeClassD != ""){
+                    $("#feeClassD").append(feeClassDHeader)
+                    $("#feeClassD").append(feeClassD)
+                }
+
+                if(feeClassEHeader != "" && feeClassE != ""){
+                    $("#feeClassE").append(feeClassEHeader)
+                    $("#feeClassE").append(feeClassE)
+                }
+
             },
             error: function (xhr, status, error) {
                 error_notification('ไม่สามารถดึงข้อมูลได้')
