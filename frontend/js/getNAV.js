@@ -3,7 +3,7 @@ $(function () {
     $("#insert_snackbar").load("../component/snackbar.html");
     let proj_id = localStorage.getItem("proj_id")
     let nav_date = localStorage.getItem("nav_date")
-    localStorage.clear()
+    // localStorage.clear()
     show_NAV(proj_id, nav_date)
 })
 

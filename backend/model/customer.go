@@ -16,4 +16,5 @@ type Customer struct {
 	Risk           int
 	Experience     bool
 	ExperienceTest bool
+	Answer         [12]string
 }
