@@ -84,5 +84,18 @@ $("#experience_test").on("click", function () {
 })
 
 $("#fund_recommend_btn").on("click", function () {
+    const dividendCheckbox = document.getElementById("dividend");
+    const taxReduceCheckbox = document.getElementById("tax_reduce");
+
+    // Check if the checkboxes are checked or not checked
+    const isDividendChecked = dividendCheckbox.checked;
+    const isTaxReduceChecked = taxReduceCheckbox.checked;
+
+    // Output the result (for demonstration purposes)
+    console.log("Is dividend checked?", isDividendChecked);
+    console.log("Is tax reduce checked?", isTaxReduceChecked);
+    localStorage.setItem("dividend",isDividendChecked)
+    localStorage.setItem("taxreduce",isTaxReduceChecked)
+
     window.location.href = "../../frontend/html/recommend.html"
 })
