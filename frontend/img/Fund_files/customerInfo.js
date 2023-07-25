@@ -83,6 +83,6 @@ $("#experience_test").on("click", function () {
     window.location.href = "../../frontend/html/personal.html"
 })
 
-$("#fund_recommend_btn").on("click", function () {
+$("#fund_recommend").on("click", function () {
     window.location.href = "../../frontend/html/recommend.html"
 })

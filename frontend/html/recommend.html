@@ -16,39 +16,105 @@
         <div id="insert_navbar"></div>
         <div id="content">
             <h4 id="title">กองทุนสำหรับคุณ</h4>
+            <div class="filter_part">
+                <div class="filter">
+                    <div id="group1_header">
+                        <label>กองทุนมีปันผล</label>
+                        <label class="switch">
+                            <input id="dividend" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div id="group2_header">
+                        <label>กองทุนลดหย่อนภาษี</label>
+                        <label class="switch">
+                            <input id="tax_reduce" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <hr id="hr">
             <div id="fund_part">
-                <div class="fund_card">
-                    <img src="../img/user.png" style="width:30%">
-                    <text class="fund_management_name">สมชาย ใจดี</text>
-                    <text class="fund_name">สมชาย ใจดี</text>
-                    <button class="btn btn-secondary  view_more">เลือก</button>
-                </div>
-                <div class="fund_card">
-                    <img src="../img/user.png" style="width:30%">
-                    <text class="fund_management_name">สุมิตรา ทองใจ</text>
-                    <text class="fund_name">สมชาย ใจดี</text>
-                    <button class="btn btn-secondary  view_more">เลือก</button>
-                </div>
-                <div class="fund_card">
-                    <img src="../img/user.png" style="width:30%">
-                    <text class="fund_management_name">วิชานิพนธ์ สวยพร้อม</text>
-                    <text class="fund_name">สมชาย ใจดี</text>
+                <!-- Card 1 -->
+                <div class="fund_card" id="card1">
 
-                    <button class="btn btn-secondary  view_more">เลือก</button>
-                </div>
-                <div class="fund_card">
-                    <img src="../img/user.png" style="width:30%">
-                    <text class="fund_management_name">สุดใจ สบายใจ</text>
-                    <text class="fund_name">สมชาย ใจดี</text>
+                    <div class="name_part">
+                        <h6 class="fund_management_name" id="management_name_card1">UOBSD-SSF</h6>
+                        <h6 class="fund_name" id="fund_name_card1">UOBAMTH</h6>
+                    </div>
 
-                    <button class="btn btn-secondary  view_more">เลือก</button>
-                </div>
-                <div class="fund_card">
-                    <img src="../img/user.png" style="width:30%">
-                    <text class="fund_management_name">สุดใจ สบายใจ</text>
-                    <text class="fund_name">สมชาย ใจดี</text>
 
-                    <button class="btn btn-secondary view_more">เลือก</button>
+                    <h6 class="investment" id="investment_card1">ลงทุนในเงินฝาก ตราสารเทียบเท่าเงินฝาก
+                        พันธบัตรรัฐบาลหรือพันธบัตร ธปท. ซึ่งมีอายุไม่เกิน 397 วันโดยไม่มีความเสี่ยงต่างประเทศ</h6>
+                    <div class="tag">
+
+                        <text class="badge badge-secondary tax" id="tax_card1">SSF</text>
+                        <text class="badge badge-secondary return" id="return_card1">มีปันผล</text>
+                        <text class="badge badge-secondary risk" id="risk_card1">1</text>
+
+                    </div>
+                    <button class="btn btn-secondary view_more" id="select">เลือก</button>
+                </div>
+
+                <div class="fund_card" id="card2">
+                    <div class="name_part">
+                        <h6 class="fund_management_name" id="management_name_card2">UOBSD-SSF</h6>
+                        <h6 class="fund_name" id="fund_name_card2">UOBAMTH</h6>
+                    </div>
+                    <h6 class="investment" id="investment_card2">ลงทุนในเงินฝาก ตราสารเทียบเท่าเงินฝาก
+                        พันธบัตรรัฐบาลหรือพันธบัตร ธปท. ซึ่งมีอายุไม่เกิน 397 วันโดยไม่มีความเสี่ยงต่างประเทศ</h6>
+                    <div class="tag">
+                        <text class="badge badge-secondary tax" id="tax_card2">SSF</text>
+                        <text class="badge badge-secondary return" id="return_card2">มีปันผล</text>
+                        <text class="badge badge-secondary risk" id="risk_card2">1</text>
+                    </div>
+                    <button class="btn btn-secondary view_more" id="select">เลือก</button>
+                </div>
+
+                <div class="fund_card" id="card3">
+                    <div class="name_part">
+                        <h6 class="fund_management_name" id="management_name_card3">UOBSD-SSF</h6>
+                        <h6 class="fund_name" id="fund_name_card3">UOBAMTH</h6>
+                    </div>
+                    <h6 class="investment" id="investment_card3">ลงทุนในเงินฝาก ตราสารเทียบเท่าเงินฝาก
+                        พันธบัตรรัฐบาลหรือพันธบัตร ธปท. ซึ่งมีอายุไม่เกิน 397 วันโดยไม่มีความเสี่ยงต่างประเทศ</h6>
+                    <div class="tag">
+                        <text class="badge badge-secondary tax" id="tax_card3">SSF</text>
+                        <text class="badge badge-secondary return" id="return_card3">มีปันผล</text>
+                        <text class="badge badge-secondary risk" id="risk_card3">1</text>
+                    </div>
+                    <button class="btn btn-secondary view_more" id="select">เลือก</button>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="fund_card" id="card4">
+                    <div class="name_part">
+                        <h6 class="fund_management_name" id="management_name_card4">UOBSD-SSF</h6>
+                        <h6 class="fund_name" id="fund_name_card4">UOBAMTH</h6>
+                    </div>
+                    <h6 class="investment" id="investment_card4">ลงทุนในเงินฝาก ตราสารเทียบเท่าเงินฝาก
+                        พันธบัตรรัฐบาลหรือพันธบัตร ธปท. ซึ่งมีอายุไม่เกิน 397 วันโดยไม่มีความเสี่ยงต่างประเทศ</h6>
+                    <div class="tag">
+                        <text class="badge badge-secondary tax" id="tax_card4">SSF</text>
+                        <text class="badge badge-secondary return" id="return_card4">มีปันผล</text>
+                        <text class="badge badge-secondary risk" id="risk_card4">1</text>
+                    </div>
+                    <button class="btn btn-secondary view_more" id="select">เลือก</button>
+                </div>
+                <div class="fund_card" id="card5">
+                    <div class="name_part">
+                        <h6 class="fund_management_name" id="management_name_card5">UOBSD-SSF</h6>
+                        <h6 class="fund_name" id="fund_name_card5">UOBAMTH</h6>
+                    </div>
+                    <h6 class="investment" id="investment_card5">ลงทุนในเงินฝาก ตราสารเทียบเท่าเงินฝาก
+                        พันธบัตรรัฐบาลหรือพันธบัตร ธปท. ซึ่งมีอายุไม่เกิน 397 วันโดยไม่มีความเสี่ยงต่างประเทศ</h6>
+                    <div class="tag">
+                        <text class="badge badge-secondary tax" id="tax_card5">SSF</text>
+                        <text class="badge badge-secondary return" id="return_card5">มีปันผล</text>
+                        <text class="badge badge-secondary risk" id="risk_card5">1</text>
+                    </div>
+                    <button class="btn btn-secondary view_more" id="select">เลือก</button>
                 </div>
             </div>
             <div class="more_fund">
