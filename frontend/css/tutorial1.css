@@ -1,7 +1,18 @@
 #topic {
     color: #ec058b;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#subtopic{
+    color: #e75fa1;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 #detail {
-    white-space: pre-wrap;
+    white-space: pre-line;
+    margin-left: 100px;
+    margin-right: 100px;
+    overflow-wrap: break-word;
 }
