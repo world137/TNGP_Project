@@ -33,18 +33,18 @@ func main() {
 func createCustomer(stroage provider.StroageProvider) {
 	customerArr := []model.Customer{
 		{
-			NameTitle: "นาย",
-			Name:      "สมชาย",
-			Surname:   "จริง",
-			CitizenId: "2232323456789",
-			DOB:       "01/01/2000",
-			MinIncome: 10000,
-			MaxIncome: 30000,
-			Tel:       "0988787654",
-			Email:     "test@gmail.com",
-			Job:       "BA",
-			Risk:      5,
-
+			NameTitle:      "นาย",
+			Name:           "สมชาย",
+			Surname:        "จริง",
+			CitizenId:      "2212323456789",
+			DOB:            "01/01/2000",
+			MinIncome:      10000,
+			MaxIncome:      30000,
+			Tel:            "0988787654",
+			Email:          "test@gmail.com",
+			Job:            "BA",
+			Risk:           8,
+			Answer:         [...]string{"4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "1", "1"},
 			ExperienceTest: true,
 			Experience:     true,
 			Account: []model.Account{

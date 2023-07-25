@@ -24,10 +24,11 @@ $("#submit").on("click", function () {
             alert(`Please select an option for Question ${questionNumber}.`);
             return;
         }
+        
         if (i < 10) {
             score += parseInt(questionValue.value)
-            ansArr.push(questionValue.value)
         }
+        ansArr.push(questionValue.value)
 
         // console.log(`Question ${questionNumber} Value: ${questionValue.value}`);
     }
@@ -44,13 +45,13 @@ $("#submit").on("click", function () {
     } else {
         riskScore = 8
     }
-    setUserData(riskScore,id)
+    setUserData(riskScore,id,ansArr)
 })
 
-function setUserData(riskScore,id) {
+function setUserData(riskScore,id,ansArr) {
     if(riskScore != null && riskScore != undefined){
         $.ajax({
-            url: "/updateriskscore/" + id + "/" + riskScore,
+            url: "/updateriskscore/" + id + "/" + riskScore + "/" + ansArr,
             type: "POST",
             dataType: "json",
             success: function (response) {

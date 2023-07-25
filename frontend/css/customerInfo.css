@@ -1,5 +1,7 @@
 :root {
     --black: #000000;
+    --button:#F077B1;
+    --button2:#EC008C;
 }
 
 #content {
@@ -9,9 +11,25 @@
     margin-right: auto;
 }
 
-.customer_info {
+#user{
+    display: flex;
+    gap: 5px;
+    width: 100%;
+}
+#outter_left{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 90vw;
+    border-radius: 15px;
+    padding: 10px;
+    width: 30%;
+}
+#outter_right{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 10px;
+    width: 70%;
+}
+.customer_info {
+    /* max-width: 90vw; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,27 +37,43 @@
     border-radius: 15px;
     gap: 20px;
 }
+#fund_part{
+    margin-top: 20px;
+    display: flex;
+}
+#block{
+    width: 30%;
+}
+#fund{
+    width: 70%;
+}
+#fund_header{
+    width: 100%;
+    text-align: center;
+}
+#fund{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 10px;
+}
 
 #customer_img {
-    width: 15%;
+    width: 50%;
 }
 
 #user_content {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    gap: 5px;
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
-
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: xx-small;
 }
 
-#content_left {
-    width: 50%;
-}
-
-#content_right {
-    width: 50%;
-}
 
 #customer_status {
     width: 100%;
@@ -51,17 +85,26 @@
     display: flex;
     gap: 10px;
     width: 100%;
+    padding: 20px;
 }
 #under{
     display: flex;
     justify-content: end;
+    padding: 20px;
 }
-
+#risk_test,#experience_test{
+    background-color: var(--button);
+    border: none;
+}
+#fund_recommend{
+    background-color: var(--button2);
+    border: none;
+}
 #risk,
 #experience {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--black);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     width: 50%;
     align-items: center;
