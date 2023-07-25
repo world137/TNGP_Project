@@ -20,7 +20,9 @@ function get_factsheet(proj_id,proj_name_th,proj_name_en) {
                 console.log(response)
                 $("#fundname").append(`<div>${proj_name_th}</div>`)
                 $("#fundname").append(`<div>${proj_name_en}</div>`)
-                $("#factSheet").append(`<a class="btn btn-primary" href=${response.url_factsheet} role="button">Factsheet</a>`)
+                $("#factSheet").append(`
+                <iframe src="https://docs.google.com/gview?url=https://secdocumentstorage.blob.core.windows.net/fundfactsheet/M0227_2564.pdf&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
+                >`)
 
 
             },
