@@ -19,6 +19,8 @@ func GetCustomerList() []model.Customer {
 
 			ExperienceTest: true,
 			Experience:     true,
+			PersonalScore:  1,
+
 			Account: []model.Account{
 				{
 					AccountId:      "001a",
@@ -50,6 +52,7 @@ func GetCustomerList() []model.Customer {
 			Risk:           0,
 			ExperienceTest: false,
 			Experience:     false,
+			PersonalScore:  1,
 			Account: []model.Account{
 				{
 					AccountId:      "001a",
