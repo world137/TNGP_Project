@@ -1,0 +1,38 @@
+:root{
+    --white: #ffffff;
+    --text_hover: #EC008C;
+}
+
+#navbar_dropdown_asset_management_link,
+#fund_link{
+    color: var(--text_hover);
+}
+#block{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    width: 60vh;
+}
+#data_part{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#content{
+    margin: 20px;
+}
+
+#fund_data{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+#pdf_part{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
+}
