@@ -21,6 +21,7 @@
     max-width: 450px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     /* align-items: center; */
     padding: 15px;
     border-radius: 15px;
@@ -150,4 +151,8 @@ input:checked+.slider:before {
 #hr{
     margin-left: 20px;
     margin-right: 20px;
+}
+.header_part{
+    display: flex;
+    justify-content: space-between;
 }
