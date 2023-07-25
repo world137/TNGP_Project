@@ -6,7 +6,7 @@ $(function () {
     }
     let asset_management_id = localStorage.getItem("asset_management_id")
 
-    localStorage.clear()
+    //localStorage.clear()
     show_all_fund(asset_management_id)
 })
 var currentPage = 1;
@@ -21,27 +21,38 @@ function show_all_fund(asset_management_id) {
             dataType: "json",
             success: function (response) {
                 console.log(response)
- 
-                data = response;
+                
+                data = [];
                 totalCards = response.length;
-
+                
+                for (let index = 0 ; index < totalCards ;index ++){
+                    if (response[index].fund_status != "EX" && response[index].fund_status != "CA" && response[index].fund_status != "LI" ){
+                        data.push(response[index])
+                    }
+                }
+                console.log(data)
                 var startIndex = (currentPage - 1) * cardsPerPage;
                 var endIndex = Math.min(startIndex + cardsPerPage, totalCards);
 
                 $("#all_fund_name").empty();
-
+                
                 var cardsHtml = "";
 
                 for (let index = startIndex; index < endIndex; index++) {
-                    if (response[index].fund_status != "EX" && response[index].fund_status != "CA" && response[index].fund_status != "LI" ){
+                    if (data[index].fund_status != "EX" && data[index].fund_status != "CA" && data[index].fund_status != "LI" ){
+                      let params = `${data[index].proj_name_th},${data[index].proj_name_en},${data[index].proj_id}`
+                      //console.log(params.split(","))
                       cardsHtml += "<div onclick=send_proj_id('" + data[index].proj_id + "') class='card' id='card" + data[index].proj_id + "'>";
-                      cardsHtml += "<div class='card-body'><div id='card_name'><h6>" + data[index].proj_name_th + "</h6><h6>" + data[index].proj_name_en + "</h6></div></div>";
+                      selectedIndex = index;
+                      //cardsHtml += "<div onclick=send_proj_id('" + data[index].proj_id + "', '" + data[index].proj_name_th + "', '" + data[index].proj_name_en + "'); class='card' id='card" + data[index].proj_id +  data[index].proj_name_th + data[index].proj_name_en + "'>";
+                      cardsHtml += "<div class='card-body'><div id='card_name'><h6 id='name_th'>" + data[index].proj_name_th + "</h6><h6 id='name_en'>" + data[index].proj_name_en + "</h6></div></div>";
                       cardsHtml += "</div>";
                     }
-
                 }
 
                 $("#all_fund_name").append(cardsHtml);
+                send_fund_name(data[selectedIndex].proj_name_th, data[selectedIndex].proj_name_en)
+
 
                 var totalPages = Math.ceil(totalCards / cardsPerPage);
                 $("#page_info").text("Page " + currentPage + " of " + totalPages);
@@ -158,6 +169,7 @@ $("#prev_button2").on("click", function () {
 show_all_fund(localStorage.getItem("asset_management_id"));
 
 function send_proj_id(proj_id) {
+    console.log("send:",proj_id)
     var currentdate = new Date();
     var today = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate()
     localStorage.setItem("proj_id", proj_id)
