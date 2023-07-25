@@ -18,7 +18,26 @@
             <div id="fund_part">
                 <div id="fund_content">
                     <h3 id="title_name">รายชื่อกองทุน</h3>
-                    <div id="all_fund_name"></div>
+                    <div class="button_part">
+                        <div id="search_block">
+                            <input type="text" id="search_input" placeholder="ค้นหาชื่อกองทุน">
+                            <button class="btn btn-secondary btn-sm" id="search_button">ค้นหา</button>
+                        </div>
+                        <div id="pagination">
+                            <button class="btn btn-secondary btn-sm" id="prev_button1">ก่อนหน้า</button>
+                            <div id="current_page1"></div>
+                            <button class="btn btn-secondary btn-sm" id="next_button1">ถัดไป</button>
+                        </div>
+                    </div>
+                    <div id="all_fund_name" class="card-container"></div>
+                    <div>
+                        <div id="pagination_bottom">
+                            <button class="btn btn-secondary btn-sm" id="prev_button2">ก่อนหน้า</button>
+                            <div id="current_page2"></div>
+                            <button class="btn btn-secondary btn-sm" id="next_button2">ถัดไป</button>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
