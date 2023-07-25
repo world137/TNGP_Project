@@ -16,6 +16,8 @@ function getUser(citizenId) {
                     return
                 }
 
+                console.log(response)
+
                 let name = response.NameTitle + response.Name + " " + response.Surname
                 let tel = response.Tel
                 let email = response.Email
@@ -23,8 +25,7 @@ function getUser(citizenId) {
                 let job = response.Job
                 let salary = response.MinIncome + " - " + response.MaxIncome
                 let risk = response.Risk
-                let experienceTest = response.ExperienceTest
-                let experience = response.Experience
+                let PersonalScore = response.PersonalScore
 
                 document.getElementById("name").innerHTML = "ชื่อ : " + name
                 document.getElementById("tel").innerHTML = "เบอร์โทร : " + tel
@@ -32,41 +33,34 @@ function getUser(citizenId) {
                 document.getElementById("dob").innerHTML = "วันเกิด  : " + dob
                 document.getElementById("job").innerHTML = "อาชีพ : " + job
                 document.getElementById("salary").innerHTML = "เงินเดือน : " + salary
+                if (PersonalScore == 1) {
+                    text = " (กลุ่มอ่อนไหว)"
+                } else {
+                    text = ""
+                }
                 console.log(risk)
 
-                if (risk != "") {
-                    if (risk == 0) {
-                        console.log("a")
-                        document.getElementById("risk_data").innerHTML = "N/A"
-                    } else {
-                        console.log("b")
 
-                        document.getElementById("risk_data").innerHTML = risk
-                    }
-                }else{
-                        document.getElementById("risk_data").innerHTML = "N/A"
-                }
-                if (experienceTest != "") {
-                    if (experienceTest == false) {
-                        document.getElementById("experience_data").innerHTML = "N/A"
-                    } else {
-                        let experience = localStorage.getItem("experience")
-                        if (experience == true) {
-                            document.getElementById("experience_data").innerHTML = "มีประสบการณ์การลงทุน"
-                        } else {
-                            document.getElementById("experience_data").innerHTML = "ไม่มีประสบการณ์การลงทุน"
-                        }
+                if (risk == 0) {
+                    console.log("a")
+                    document.getElementById("risk_data").innerHTML = "N/A"
+                } else {
+                    console.log("b")
 
-                    }
-                }else{
-                    document.getElementById("experience_data").innerHTML = "N/A"
+                    document.getElementById("risk_data").innerHTML = risk + text
+
                 }
-                if (risk != 0 && experienceTest == true) {
+
+
+                if (risk != 0) {
                     document.getElementById("under").style.display = "flex"
                 } else {
                     document.getElementById("under").style.display = "none"
                 }
+
+
                 localStorage.setItem("id", citizenId)
+                localStorage.setItem("customername", name)
             },
             error: function (xhr, status, error) {
                 error_notification('ไม่สามารถดึงข้อมูลได้')
@@ -86,7 +80,7 @@ $("#risk_test").on("click", function () {
 $("#experience_test").on("click", function () {
     // localStorage.setItem("customername", customername)
 
-    window.location.href = "../../frontend/html/experience.html"
+    window.location.href = "../../frontend/html/personal.html"
 })
 
 $("#fund_recommend").on("click", function () {

@@ -27,6 +27,7 @@ func main() {
 
 	controller.FundCompare()
 	controller.Fee()
+	// controller.SetpersonalScore(db)
 
 	// Start the server on port 8080
 	defer http.ListenAndServe(":8080", nil)
@@ -45,9 +46,10 @@ func createCustomer(stroage provider.StroageProvider) {
 			Email:          "test@gmail.com",
 			Job:            "BA",
 			Risk:           8,
-			Answer:         [...]string{"4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "1", "1"},
+			Answer:         [12]string{"4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "1", "1"},
 			ExperienceTest: true,
 			Experience:     true,
+			PersonalScore:  0,
 			Account: []model.Account{
 				{
 					AccountId:      "001a",
@@ -79,6 +81,8 @@ func createCustomer(stroage provider.StroageProvider) {
 			Risk:           0,
 			ExperienceTest: false,
 			Experience:     false,
+			Answer:         [12]string{},
+			PersonalScore:  1,
 			Account: []model.Account{
 				{
 					AccountId:      "001a",

@@ -17,4 +17,5 @@ type Customer struct {
 	Experience     bool
 	ExperienceTest bool
 	Answer         [12]string
+	PersonalScore  int
 }

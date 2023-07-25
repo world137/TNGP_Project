@@ -10,8 +10,11 @@
     margin-left: auto;
     margin-right: auto;
 }
-
-#user{
+#other_data{
+    display: flex;
+    gap: 10px;
+}
+#user_score{
     display: flex;
     gap: 5px;
     width: 100%;
@@ -26,7 +29,13 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 10px;
-    width: 70%;
+    width: 100%;
+    margin-top: 20px;
+}
+#other_user_data{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 10px;
 }
 .customer_info {
     /* max-width: 90vw; */
@@ -37,17 +46,17 @@
     border-radius: 15px;
     gap: 20px;
 }
-#fund_part{
+#other_data{
     margin-top: 20px;
     display: flex;
 }
 #block{
     width: 30%;
 }
-#fund{
+#other_user_data{
     width: 70%;
 }
-#fund_header{
+#other_data_header{
     width: 100%;
     text-align: center;
 }
@@ -81,7 +90,7 @@
     flex-direction: column;
     gap: 10px;
 }
-#top{
+#top,#next{
     display: flex;
     gap: 10px;
     width: 100%;
@@ -92,7 +101,7 @@
     justify-content: end;
     padding: 20px;
 }
-#risk_test,#experience_test{
+#risk_test,#personal_test{
     background-color: var(--button);
     border: none;
 }
@@ -101,17 +110,26 @@
     border: none;
 }
 #risk,
-#experience {
+#personal{
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    width: 50%;
+    width: 100%;
     align-items: center;
     padding: 20px;
 }
+#customer {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
 
-#risk_title,#experience_title {
+#risk_title,#personal_title {
     align-items: center;
     display: flex;
     flex-direction: column;
