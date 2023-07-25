@@ -23,6 +23,8 @@ func main() {
 
 	controller.Risk()
 
+	controller.FundCompare()
+
 	// Start the server on port 8080
 	defer http.ListenAndServe(":8080", nil)
 }
