@@ -103,7 +103,7 @@
     background-color: var(--button);
     border: none;
 }
-#fund_recommend_btn{
+#fund_recommend{
     background-color: var(--button2);
     border: none;
 }
@@ -131,6 +131,9 @@
     border-radius: 15px;
     padding: 15px;
     width: 50%;
+}
+#block{
+    
 }
 #risk_title,#personal_title {
     align-items: center;
@@ -198,7 +201,7 @@
     border-radius: 50%;
   }
   
-  #group1_header,#group2_header{
+  #group1_header{
     display: flex;
     justify-content: space-between;
 

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://localhost:8080/frontend/html/customerInfo.html -->
+<html lang="en"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund</title>
+    <link rel="stylesheet" type="text/css" href="./Fund_files/customerInfo.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./Fund_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="bodyPart">
+        <div id="insert_navbar">
+
+<style>
+    :root{
+        --background_hover:#bdbdbd;
+    }
+    .navbar_name {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .nav-item:active,
+    .dropdown-item:active {
+        background-color: var(--background_hover);
+    }
+    .nav-item:active{
+        border-radius: 15px;
+    }
+</style>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar_name">
+            <img src="./Fund_files/logo.png" alt="" width="30" height="30">
+            <a class="navbar-brand">ธนาคารออมสิน</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" id="homepage" href="http://localhost:8080/frontend/index.html">หน้าหลัก</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://localhost:8080/frontend/html/customerInfo.html#" id="navbar_dropdown_asset_management_link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        กองทุน
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbar_dropdown_asset_management_link">
+                        <a class="dropdown-item" id="asset_management_link" href="http://localhost:8080/frontend/html/assetManagement.html">บริษัทหลักทรัพย์จัดการกองทุน</a>
+                        <a class="dropdown-item" id="fund_link" href="http://localhost:8080/frontend/html/allFund.html">กองทุน</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://localhost:8080/frontend/html/customerInfo.html#" id="navbar_dropdown_customer_link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ลูกค้า
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbar_dropdown_customer_link">
+                        <a class="dropdown-item" id="customer_find" href="http://localhost:8080/frontend/html/findCustomer.html">ค้นหาลูกค้า</a>
+                    </div>
+               
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="fund_recommend" href="http://localhost:8080/frontend/html/findCustomer.html">แนะนำกองทุน</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+</div>
+        <div id="content">
+            <div id="other_data">
+                <div id="outter_left">
+                    <div id="user_content">
+                        <img src="./Fund_files/user.png" alt="User 4" id="customer_img">
+                        <h6 id="name">ชื่อ : นางสมหญิง จริง</h6>
+                        <h6 id="tel">เบอร์โทร : 0988398454</h6>
+                        <h6 id="email">อีเมล : test2@gmail.com</h6>
+                        <h6 id="dob">วันเกิด  : 01/01/2000</h6>
+                        <h6 id="job">อาชีพ : BA</h6>
+                        <h6 id="salary">เงินเดือน : 10000 - 30000</h6>
+                    </div>
+                </div>
+                <div id="other_user_data">
+                    <div id="other_data_header">
+                        <h4>data</h4>
+                    </div>
+                </div>
+            </div>
+            <div id="user_score">
+
+                <div class="customer_info">
+                    <div id="customer_status">
+                        <div id="top">
+                            <div id="risk">
+                                <div id="risk_title">
+                                    <h5>ระดับความเสี่ยง</h5>
+                                    <h5 id="risk_data">1 (กลุ่มอ่อนไหว)</h5>
+                                </div>
+                                <button id="risk_test" class="btn btn-secondary">ทำแบบทดสอบ</button>
+                                <hr>
+                                <div id="risk_title">
+                                    <h5>คุณลักษณะของลูกค้า</h5>
+                                    <h5 id="risk_data"></h5>
+                                </div>
+                            </div>
+                            <div id="filter">
+                                <div id="heder_filter">
+                                    <h5 id="heder_filter_text">กองคุณแบบที่ไหนที่คุณต้องการ</h5>
+                                    <h6>
+                                        เลือกกองทุนที่ใช่เพื่ออิสรภาพทางการเงินของคุณ
+                                    </h6>
+                                    <hr>
+                                </div>
+                                <div id="group1">
+                                    <div id="group1_header">
+                                        <label>กองทุนมีปันผล</label>
+                                        <label class="switch">
+                                            <input id="dividend" type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <div id="group1_body">
+                                        <p>
+                                            💡 เคล็ดลับการเลือกกองทุนปันผลหรือไม่ปันผล อยากมีกระแสเงินสดใช้จ่ายระหว่างลงทุน เลือก “กองทุนปันผล” คนที่สนใจลงทุนระยะยาว เป็น 10 ปี หรือมากกว่านั้น เพื่อรอรับเงินก้อนโตในอนาคต เลือก “กองทุนไม่ปันผล”
+                                        </p>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <div id="group2">
+                                    <div id="group2_header">
+                                        <label>กองทุนลดหย่อนภาษี</label>
+                                        <label class="switch">
+                                            <input id="tax_reduce" type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <div id="group1_body">
+                                        <p>
+                                            💡 เคล็ดลับการเลือกกองทุนเพื่อลดหย่อนภาษี คนที่สนใจลงทุนระยะยาวและใช้ลดหย่อนภาษีเงินได้บุคคลธรรมดา เลือก “กองทุนลดหย่อนภาษี” คนที่ต้องการสภาพคล่องและไม่สนใจการลดหย่อนภาษีเงินได้บุคคลธรรมดา เลือก “กองทุนไม่ลดหย่อนภาษี”
+                                        </p>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div id="under" style="display: flex;">
+                                    <div id="find_fund">
+                                        <button id="fund_recommend" class="btn btn-secondary">แนะนำกองทุน</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="insert_snackbar">
+
+
+
+  <style>
+    :root {
+      --error: #E32636;
+      --success: #02d300;
+      --warning: #dbaf00;
+      --white: #ffffff;
+    }
+
+    #error_snackbar,
+    #success_snackbar,
+    #warning_snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      color: var(--white);
+      border-radius: 20px;
+      text-align: center;
+      padding: 16px;
+      position: fixed;
+      z-index: 130;
+      right: 30px;
+      top: 30px;
+      font-size: 17px;
+    }
+
+    #error_snackbar {
+      background-color: var(--error)
+    }
+
+    #success_snackbar {
+      background-color: var(--success)
+    }
+
+    #warning_snackbar {
+      background-color: var(--warning);
+    }
+
+    #error_snackbar.show,
+    #success_snackbar.show,
+    #warning_snackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+      from {
+        top: 0;
+        opacity: 0;
+      }
+
+      to {
+        top: 30px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadein {
+      from {
+        top: 0;
+        opacity: 0;
+      }
+
+      to {
+        top: 30px;
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes fadeout {
+      from {
+        top: 30px;
+        opacity: 1;
+      }
+
+      to {
+        top: 0;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeout {
+      from {
+        top: 30px;
+        opacity: 1;
+      }
+
+      to {
+        top: 0;
+        opacity: 0;
+      }
+    }
+  </style>
+
+  <div id="error_snackbar"></div>
+  <div id="success_snackbar"></div>
+  <div id="warning_snackbar"></div>
+  <script>
+    function success_notification(text) {
+      var snackbar = document.getElementById("success_snackbar");
+      snackbar.innerHTML = text
+      snackbar.className = "show"
+      setTimeout(function () { snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+    }
+    function error_notification(text) {
+      var snackbar = document.getElementById("error_snackbar");
+      snackbar.innerHTML = text
+      snackbar.className = "show"
+      setTimeout(function () { snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+    }
+    function warning_notification(text) {
+      var snackbar = document.getElementById("warning_snackbar");
+      snackbar.innerHTML = text
+      snackbar.className = "show"
+      setTimeout(function () { snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+    }
+
+  </script>
+
+
+</div>
+    
+
+
+
+<script src="./Fund_files/jquery-3.6.0.min.js"></script>
+<!-- bootstrap -->
+<script src="./Fund_files/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="./Fund_files/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="./Fund_files/customerInfo.js"></script>
+
+</body><!-- jquery --></html>
