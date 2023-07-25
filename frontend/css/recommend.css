@@ -1,3 +1,7 @@
+:root{
+    --button:#F077B1;
+    --button2:#EC008C;
+}
 #content {
     margin: 20px;
 }
@@ -25,4 +29,13 @@
 .more_fund {
     display: flex;
     justify-content: center;
+}
+.view_more{
+    background-color: var(--button) !important;
+    border: none !important;
+}
+
+#more_fund{
+    background-color: var(--button2);
+    border: none;
 }

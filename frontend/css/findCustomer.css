@@ -1,5 +1,7 @@
 :root{
     --background: #ffc4e9;
+    --button: #F077B1;
+    --button2:#EC008C;
 }
 
 ิbody{
@@ -53,4 +55,9 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+#analyze{
+    background-color: var(--button2);
+    border: none;
 }
