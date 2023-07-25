@@ -1,6 +1,7 @@
 :root{
     --white: #ffffff;
     --text_hover: #EC008C;
+    --button:#F077B1;
 }
 
 #navbar_dropdown_asset_management_link,
@@ -75,4 +76,13 @@
     justify-content: end;
     gap: 10px;
 
+}
+
+#search_button,
+#prev_button1,
+#prev_button2,
+#next_button1,
+#next_button2{
+    background-color: var(--button);
+    border: none;
 }
