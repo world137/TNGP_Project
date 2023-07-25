@@ -26,6 +26,7 @@ func main() {
 	controller.FeederFund()
 
 	controller.FundCompare()
+	controller.Fee()
 
 	// Start the server on port 8080
 	defer http.ListenAndServe(":8080", nil)
