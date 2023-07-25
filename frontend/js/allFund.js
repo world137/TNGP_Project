@@ -15,8 +15,10 @@ function show_all_fund(asset_management_id) {
             success: function (response) {
                 console.log(response)
                 for (let index = 0; index < response.length; index++) {
-                    $("#all_fund_name").append("<div onclick=send_proj_id('" + response[index].proj_id + "') class='card' id='card" + response[index].proj_id + "'></div>")
-                    $("#card" + response[index].proj_id).append("<div class='card-body'><div id='card_name'><h6>" + response[index].proj_name_th + "</h6><h6>" + response[index].proj_name_en + "</h6></div></div>")
+                    if (response[index].fund_status != "EX" && response[index].fund_status != "CA" && response[index].fund_status != "LI" ){
+                        $("#all_fund_name").append("<div onclick=send_proj_id('" + response[index].proj_id + "') class='card' id='card" + response[index].proj_id + "'></div>")
+                        $("#card" + response[index].proj_id).append("<div class='card-body'><div id='card_name'><h6>" + response[index].proj_name_th + "</h6><h6>" + response[index].proj_name_en + "</h6></div></div>")
+                    }
                 }
             },
             error: function (xhr, status, error) {

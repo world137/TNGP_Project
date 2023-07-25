@@ -23,6 +23,7 @@ func main() {
 	controller.NAV()
 	controller.Risk()
 	controller.DividendPolicy()
+	controller.FeederFund()
 
 	// Start the server on port 8080
 	defer http.ListenAndServe(":8080", nil)

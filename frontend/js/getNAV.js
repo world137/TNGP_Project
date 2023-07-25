@@ -15,12 +15,16 @@ function show_NAV(proj_id, nav_date) {
             dataType: "json",
             success: function (response) {
                 console.log(response)
+                var lastest  = parseInt(response.last_val)
+                var previous = parseInt(response.previous_val)
+                var diff = (lastest - previous / lastest) * 100
 
                 $("#nav").append(`<div>วันที่แก้ไขข้อมูลล่าสุด: ${toThaiDateString(response.last_upd_date)}</div>`)
                 $("#nav").append(`<div>วันที่ NAV: ${toThaiDateString(response.nav_date)}</div>`)
                 $("#nav").append(`<div>มูลค่าทรัพย์สินสุทธิ (บาท): ${response.net_asset.toLocaleString("en-US")}</div>`)
                 $("#nav").append(`<div>มูลค่าหน่วยลงทุน (บาท/หน่วย): ${response.last_val}</div>`)
                 $("#nav").append(`<div>มูลค่าหน่วยลงทุนของวันก่อนหน้า (บาท/หน่วย): ${response.previous_val}</div>`)
+                $("#nav").append(`<div>เปอร์เซ็น: ${diff} %</div>`)
 
             },
             error: function (xhr, status, error) {
