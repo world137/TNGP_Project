@@ -16,12 +16,14 @@ func SetRiskScore(stroage provider.StroageProvider) {
 	http.HandleFunc("/updateriskscore/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodPost {
 			pathParts := strings.Split(r.URL.Path, "/")
-			riskScore := pathParts[len(pathParts)-2]
-			id := pathParts[len(pathParts)-3]
-			ansArr := pathParts[len(pathParts)-1]
+			sensitive := pathParts[len(pathParts)-1]
+			riskScore := pathParts[len(pathParts)-3]
+			id := pathParts[len(pathParts)-4]
+			ansArr := pathParts[len(pathParts)-2]
 			fmt.Println("path", pathParts)
 			fmt.Println("risk", riskScore)
 			fmt.Println("ans", ansArr)
+			fmt.Println("sensitive", sensitive)
 			fmt.Println("id", id)
 			setAns := strings.Split(ansArr, ",")
 			fmt.Println("setAns", setAns)
@@ -30,9 +32,9 @@ func SetRiskScore(stroage provider.StroageProvider) {
 			if err != nil {
 				fmt.Println("error")
 			}
-			fmt.Println()
+
 			for i, v := range setAns {
-				fmt.Println(v)
+
 				keeparr[i] = v
 			}
 
@@ -45,6 +47,12 @@ func SetRiskScore(stroage provider.StroageProvider) {
 					}
 					v.Risk = score
 					v.Answer = keeparr
+					Issensitive, err := strconv.Atoi(sensitive)
+					if err != nil {
+						http.Error(w, err.Error(), http.StatusInternalServerError)
+						return
+					}
+					v.PersonalScore = Issensitive
 
 					tagetCustomer := v
 					fmt.Println(tagetCustomer)

@@ -15,7 +15,7 @@
     <div id="bodyPart">
         <div id="insert_navbar"></div>
         <div id="content">
-            <div id="user">
+            <div id="other_data">
                 <div id="outter_left">
                     <div id="user_content">
                         <img src="../img/user.png" alt="User 4" id="customer_img">
@@ -27,53 +27,86 @@
                         <h6 id="salary"></h6>
                     </div>
                 </div>
-                <div id="outter_right">
-                    <div class="customer_info">
-                        <div id="customer_status">
-                            <div id="top">
-                                <div id="risk">
-                                    <div id="risk_title">
-                                        <h5>ระดับความเสี่ยง</h5>
-                                        <h5 id="risk_data"></h5>
-                                    </div>
-                                    <button id="risk_test" class="btn btn-secondary">ทำแบบทดสอบ</button>
-                                </div>
-                                <div id="experience">
-                                    <div id="experience_title">
-                                        <h5>ประสบการณ์การลงทุน</h5>
-                                        <h5 id="experience_data"></h5>
+                <div id="other_user_data">
+                    <div id="other_data_header">
+                        <h4>data</h4>
+                    </div>
+                </div>
+            </div>
+            <div id="user_score">
 
-                                    </div>
-                                    <button id="experience_test" class="btn btn-secondary">ทำแบบทดสอบ</button>
+                <div class="customer_info">
+                    <div id="customer_status">
+                        <div id="top">
+                            <div id="risk">
+                                <div id="risk_title">
+                                    <h5>ระดับความเสี่ยง</h5>
+                                    <h5 id="risk_data"></h5>
+                                </div>
+                                <button id="risk_test" class="btn btn-secondary">ทำแบบทดสอบ</button>
+                                <hr>
+                                <div id="risk_title">
+                                    <h5>คุณลักษณะของลูกค้า</h5>
+                                    <h5 id="risk_data"></h5>
                                 </div>
                             </div>
-                            <div id="under">
-                                <div id="find_fund">
-                                    <button id="fund_recommend" class="btn btn-secondary">แนะนำกองทุน</button>
+                            <div id="filter">
+                                <div id="heder_filter">
+                                    <h5 id="heder_filter_text">กองคุณแบบที่ไหนที่คุณต้องการ</h5>
+                                    <h6>
+                                        เลือกกองทุนที่ใช่เพื่ออิสรภาพทางการเงินของคุณ
+                                    </h6>
+                                    <hr>
+                                </div>
+                                <div id="group1">
+                                    <div id="group1_header">
+                                        <label>กองทุนมีปันผล</label>
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <div id="group1_body">
+                                        <p>
+                                            💡 เคล็ดลับการเลือกกองทุนปันผลหรือไม่ปันผล อยากมีกระแสเงินสดใช้จ่ายระหว่างลงทุน เลือก “กองทุนปันผล” คนที่สนใจลงทุนระยะยาว เป็น 10 ปี หรือมากกว่านั้น เพื่อรอรับเงินก้อนโตในอนาคต เลือก “กองทุนไม่ปันผล”
+                                        </p>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <div id="group2">
+                                    <div id="group1_header">
+                                        <label>กองทุนลดหย่อนภาษี</label>
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <div id="group1_body">
+                                        <p>
+                                            💡 เคล็ดลับการเลือกกองทุนเพื่อลดหย่อนภาษี คนที่สนใจลงทุนระยะยาวและใช้ลดหย่อนภาษีเงินได้บุคคลธรรมดา เลือก “กองทุนลดหย่อนภาษี” คนที่ต้องการสภาพคล่องและไม่สนใจการลดหย่อนภาษีเงินได้บุคคลธรรมดา เลือก “กองทุนไม่ลดหย่อนภาษี”
+                                        </p>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div id="under">
+                                    <div id="find_fund">
+                                        <button id="fund_recommend" class="btn btn-secondary">แนะนำกองทุน</button>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>
+
+
+
                 </div>
+
 
             </div>
-            <div id="fund_part">
-                <div id="block">
-                </div>
-                <div id="fund">
-                    <div id="fund_header">
-                        <h4>กองทุนของฉัน</h4>
-                    </div>
-
-                </div>
-            </div>
-
+            
         </div>
-
-
-
     </div>
 
     <div id="insert_snackbar"></div>
