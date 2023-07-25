@@ -9,6 +9,7 @@ $(function () {
 })
 
 function show_risk(proj_id) {
+    var risk = ""
     if (proj_id != null && proj_id != undefined) {
         $.ajax({
             url: "/getRisk/" + proj_id + "/suitability",
@@ -17,7 +18,34 @@ function show_risk(proj_id) {
             success: function (response) {
                 console.log(response)
 
-                $("#risk").append(`<div>ความเสี่ยงของกองทุนรวม: ${response.risk_spectrum}</div>`)
+                switch (response.risk_spectrum) {
+                    case "-":
+                        risk = "ไม่ทราบค่า"
+                        break;
+                    case "RS1":
+                        risk = "ความเสี่ยงระดับ 1"
+                    case "RS2":
+                        risk = "ความเสี่ยงระดับ 2"
+                    case "RS3":
+                        risk = "ความเสี่ยงระดับ 3" 
+                    case "RS4":
+                        risk = "ความเสี่ยงระดับ 4" 
+                    case "RS5":
+                        risk = "ความเสี่ยงระดับ 5"
+                    case "RS6":
+                        risk = "ความเสี่ยงระดับ 6"
+                    case "RS7":
+                        risk = "ความเสี่ยงระดับ 7"    
+                    case "RS8":
+                        risk = "ความเสี่ยงระดับ 8"
+                    case "RS8":
+                        risk = "ความเสี่ยงระดับ 8+"                                   
+                    default:
+                        risk = "ไม่ทราบค่า"
+                        break
+                }
+
+                $("#risk").append(`<div>ความเสี่ยงของกองทุนรวม: ${risk}</div>`)
 
             },
             error: function (xhr, status, error) {

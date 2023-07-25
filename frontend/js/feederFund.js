@@ -7,6 +7,7 @@ $(function () {
 })
 
 function get_FeederFund(proj_id){
+    var data = ""
     if(proj_id != null && proj_id != undefined){
         $.ajax({
             url: "/getFeederFund/" + proj_id + "/feeder_fund",
@@ -14,7 +15,12 @@ function get_FeederFund(proj_id){
             dataType: "json",
             success: function (response) {
                 console.log(response)
-                $("#feederfund").append(`<div>กองทุนหลัก:${response.main_feeder_fund}</div>`)
+                if (response.main_feeder_fund == ""){
+                    data = "ไม่ระบุ"
+                }else{
+                    data = response.main_feeder_fund
+                }
+                $("#feederfund").append(`<div>กองทุนหลัก:${data}</div>`)
             },
             error: function (xhr, status, error) {
                 error_notification('ไม่สามารถดึงข้อมูลได้')

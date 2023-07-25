@@ -17,16 +17,18 @@ function show_NAV(proj_id, nav_date) {
             dataType: "json",
             success: function (response) {
                 console.log(response)
-                var lastest  = parseInt(response.last_val)
-                var previous = parseInt(response.previous_val)
-                var diff = (lastest - previous / lastest) * 100
-
+                var lastest  = parseFloat(response.last_val)
+                var previous = parseFloat(response.previous_val)
+                var sell = parseFloat(response.amc_info[0].sell_price)
+                
+                var diff = (((lastest - sell) / lastest) * 100)
+                
                 $("#nav").append(`<div>วันที่แก้ไขข้อมูลล่าสุด: ${toThaiDateString(response.last_upd_date)}</div>`)
                 $("#nav").append(`<div>วันที่ NAV: ${toThaiDateString(response.nav_date)}</div>`)
                 $("#nav").append(`<div>มูลค่าทรัพย์สินสุทธิ (บาท): ${response.net_asset.toLocaleString("en-US")}</div>`)
                 $("#nav").append(`<div>มูลค่าหน่วยลงทุน (บาท/หน่วย): ${response.last_val}</div>`)
                 $("#nav").append(`<div>มูลค่าหน่วยลงทุนของวันก่อนหน้า (บาท/หน่วย): ${response.previous_val}</div>`)
-                $("#nav").append(`<div>เปอร์เซ็น: ${diff} %</div>`)
+                $("#nav").append(`<div>เปอร์เซ็นต์: ${diff.toFixed(2)} %</div>`)
 
             },
             error: function (xhr, status, error) {
@@ -38,21 +40,44 @@ function show_NAV(proj_id, nav_date) {
 }
 
 function toThaiDateString(date) {
-    date = new Date(date)
-    let monthNames = [
-        "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน",
-        "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม.",
-        "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
-    ];
 
-    let year = date.getFullYear() + 543;
-    let month = monthNames[date.getMonth()];
-    let numOfDay = date.getDate();
 
-    let hour = date.getHours().toString().padStart(2, "0");
-    let minutes = date.getMinutes().toString().padStart(2, "0");
-    let second = date.getSeconds().toString().padStart(2, "0");
+    if (data != ""){
+        date = new Date(date)
+        let monthNames = [
+            "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน",
+            "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม.",
+            "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+        ];
 
-    return `${numOfDay} ${month} ${year} ` +
-        `${hour}:${minutes}:${second} น.`;
+        let year = date.getFullYear() + 543;
+        let month = monthNames[date.getMonth()];
+        let numOfDay = date.getDate();
+
+        let hour = date.getHours().toString().padStart(2, "0");
+        let minutes = date.getMinutes().toString().padStart(2, "0");
+        let second = date.getSeconds().toString().padStart(2, "0");
+
+        return `${numOfDay} ${month} ${year} ` +
+            `${hour}:${minutes}:${second} น.`;
+    }else{
+        date = new Date()
+        let monthNames = [
+            "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน",
+            "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม.",
+            "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+        ];
+
+        let year = date.getFullYear() + 543;
+        let month = monthNames[date.getMonth()];
+        let numOfDay = date.getDate();
+
+        let hour = date.getHours().toString().padStart(2, "0");
+        let minutes = date.getMinutes().toString().padStart(2, "0");
+        let second = date.getSeconds().toString().padStart(2, "0");
+
+        return `${numOfDay} ${month} ${year} ` +
+            `${hour}:${minutes}:${second} น.`;
+    }
+    
 }
