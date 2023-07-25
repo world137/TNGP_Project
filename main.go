@@ -23,6 +23,7 @@ func main() {
 	controller.NAV()
 	controller.Risk()
 	controller.DividendPolicy()
+	controller.FeederFund()
 
 	controller.FundCompare()
 

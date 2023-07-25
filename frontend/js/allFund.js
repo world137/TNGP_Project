@@ -20,6 +20,8 @@ function show_all_fund(asset_management_id) {
             type: "GET",
             dataType: "json",
             success: function (response) {
+                console.log(response)
+ 
                 data = response;
                 totalCards = response.length;
 
@@ -31,9 +33,12 @@ function show_all_fund(asset_management_id) {
                 var cardsHtml = "";
 
                 for (let index = startIndex; index < endIndex; index++) {
-                    cardsHtml += "<div onclick=send_proj_id('" + data[index].proj_id + "') class='card' id='card" + data[index].proj_id + "'>";
-                    cardsHtml += "<div class='card-body'><div id='card_name'><h6>" + data[index].proj_name_th + "</h6><h6>" + data[index].proj_name_en + "</h6></div></div>";
-                    cardsHtml += "</div>";
+                    if (response[index].fund_status != "EX" && response[index].fund_status != "CA" && response[index].fund_status != "LI" ){
+                      cardsHtml += "<div onclick=send_proj_id('" + data[index].proj_id + "') class='card' id='card" + data[index].proj_id + "'>";
+                      cardsHtml += "<div class='card-body'><div id='card_name'><h6>" + data[index].proj_name_th + "</h6><h6>" + data[index].proj_name_en + "</h6></div></div>";
+                      cardsHtml += "</div>";
+                    }
+
                 }
 
                 $("#all_fund_name").append(cardsHtml);
