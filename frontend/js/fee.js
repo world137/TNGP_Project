@@ -51,17 +51,17 @@ function show_fee(proj_id) {
                 }
 
                 if(feeClassAHeader != "" && feeClassA != ""){
-                    $("#feeClassA").append(feeClassAHeader)
+                    $("#feeClassA").append("<center><b>"+feeClassAHeader+"</b><center>")
                     $("#feeClassA").append(feeClassA)
                 }
 
                 if(feeClassDHeader != "" && feeClassD != ""){
-                    $("#feeClassD").append(feeClassDHeader)
+                    $("#feeClassD").append("<center><b>"+feeClassDHeader+"</b><center>")
                     $("#feeClassD").append(feeClassD)
                 }
 
                 if(feeClassEHeader != "" && feeClassE != ""){
-                    $("#feeClassE").append(feeClassEHeader)
+                    $("#feeClassE").append("<center><b>"+feeClassEHeader+"</b><center>")
                     $("#feeClassE").append(feeClassE)
                 }
 
