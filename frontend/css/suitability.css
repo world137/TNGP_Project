@@ -1,5 +1,6 @@
 :root{
     --black : #000000;
+    --button2: #EC008C;
 }
 
 #content{
@@ -26,4 +27,8 @@
 
 #test_img{
     width: 50%;
+}
+#submit{
+    background-color: var(--button2);
+    border: none;
 }
