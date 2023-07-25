@@ -40,14 +40,27 @@ function getUser(citizenId) {
                 }
                 console.log(risk)
 
+                if(risk == 1){
+                    risktext = "เสี่ยงต่ำ"
+                }else if(risk >= 2 && risk <=4){
+                    risktext = "เสี่ยงปานกลางค่อนข้างต่ำ"
+                }else if(risk == 5){
+                    risktext = "เสี่ยงปานกลางค่อนข้างสูง"
+                }else if(risk == 6 || risk == 7){
+                    risktext = "เสี่ยงสูง"
+                }else if(risk == 8){
+                    risktext = "เสี่ยงสูงมาก"
+                }
+
 
                 if (risk == 0) {
                     console.log("a")
                     document.getElementById("risk_data").innerHTML = "N/A"
                 } else {
                     console.log("b")
+                    
 
-                    document.getElementById("risk_data").innerHTML = risk + text
+                    document.getElementById("risk_data").innerHTML = risktext + text
 
                 }
 

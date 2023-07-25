@@ -32,3 +32,6 @@
     background-color: var(--button2);
     border: none;
 }
+.bottom{
+    margin-bottom: 0px;
+}

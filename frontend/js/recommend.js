@@ -1,3 +1,6 @@
+
+var fundArray = ["C0000000623"]
+
 $(function () {
     $("#insert_navbar").load("../component/navbar.html");
     $("#insert_snackbar").load("../component/snackbar.html");
@@ -76,3 +79,12 @@ $(function () {
 $("#more_fund").on("click", function () {
     window.location.href = "../../frontend/html/assetManagement.html";
 });
+
+function find(id,name_th,name_en) {
+    localStorage.removeItem("proj_id");
+    localStorage.setItem("proj_id",id)
+    localStorage.setItem("proj_name_th",name_th)
+    localStorage.setItem("proj_name_en",name_en)
+    window.location.href = "../../frontend/html/fundDetail.html" 
+
+}
