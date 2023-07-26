@@ -28,7 +28,7 @@
     gap: 5px;
 }
 
-.more_fund {
+.more_fund,.compare {
     display: flex;
     justify-content: end;
     margin: 20px;
@@ -156,3 +156,34 @@ input:checked+.slider:before {
     display: flex;
     justify-content: space-between;
 }
+
+#risk_card1,
+#risk_card2,
+#risk_card4,
+#risk_card5,
+#risk_card6,
+#risk_card7,
+#risk_card10{
+    background-color: orange !important;
+}
+.compare_area{
+    display: flex;
+    gap: 5px;
+    margin: 20px;
+}
+#selected_fund_1,#selected_fund_2{
+    width: 100%;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px; */
+    /* padding: 10px; */
+}
+#reset_compare,#compare_text{
+    display: none;
+}
+
+.selected_fund_card {
+    display: inline-block;
+    width: 49%; /* Set the width to allow two cards in the same row */
+    vertical-align: top; /* Align the cards at the top */
+    margin-bottom: 10px; /* Add some margin between the cards */
+  }

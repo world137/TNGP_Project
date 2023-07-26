@@ -64,9 +64,7 @@ function show_NAV(proj_id, nav_date) {
 }
 
 function toThaiDateString(date) {
-
-
-    if (data != "") {
+    if (date != ""){
         date = new Date(date)
         let monthNames = [
             "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน",
