@@ -25,9 +25,39 @@ function getUser(citizenId) {
                 let job = response.Job
                 let salary = response.MinIncome + " - " + response.MaxIncome
                 let risk = response.Risk
-                let PersonalScore = response.PersonalScore
+                let PersonallScore = response.PersonalScore
                 account = response.Account
                 console.log(account)
+
+                const summary = {};
+                funds = []
+                for (let i = 0; i < account[1].FundProfile.length; i++){
+                    j = i
+                    funds.push(account[1].FundProfile[i])
+                }
+
+	
+                // Loop through the funds and aggregate the values
+                funds.forEach((fund) => {
+                    if (!summary[fund.Fund_name]) {
+                    summary[fund.Fund_name] = {
+                        TotalAmount: fund.Amount,
+                        TotalValue: fund.Value,
+                    };
+                    } else {
+                    summary[fund.Fund_name].TotalAmount += fund.Amount;
+                    summary[fund.Fund_name].TotalValue += fund.Value;
+                    }
+                });
+               
+
+                // Print the summarized data
+                for (const fundName in summary) {
+                    $("#transaction").append(`<div>กองทุน: ${fundName} Total Amount: ${summary[fundName].TotalAmount}Total Value: ${summary[fundName].TotalValue.toFixed(2)}</div>`)
+                    console.log(`Fund Name: ${fundName}`);
+                    console.log(`Total Amount: ${summary[fundName].TotalAmount}`);
+                    console.log(`Total Value: ${summary[fundName].TotalValue.toFixed(2)}\n`);
+                }
 
                 document.getElementById("name").innerHTML = "ชื่อ : " + name
                 document.getElementById("tel").innerHTML = "เบอร์โทร : " + tel
