@@ -57,7 +57,37 @@
 }
 #other_data_header{
     width: 100%;
-    text-align: center;
+    padding: 10px;
+    display: flex;
+}
+#user_left{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+#user_right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#account_data{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+}
+#account_card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+}
+.save_acc{
+    background: linear-gradient(30deg, rgba(255,255,255,1) 0%, rgba(235,121,147,1) 40%);
+}
+.fund_acc{
+    background: linear-gradient(30deg, rgba(255,255,255,1) 0%, rgba(237,174,94,1) 40%);
 }
 #fund{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -205,4 +235,11 @@
   }
 #heder_filter_text{
     color: var(--button2);
+}
+
+#invesment_part{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
 }
