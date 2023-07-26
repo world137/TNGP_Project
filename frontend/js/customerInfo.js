@@ -26,8 +26,45 @@ function getUser(citizenId) {
                 let salary = response.MinIncome + " - " + response.MaxIncome
                 let risk = response.Risk
                 let PersonalScore = response.PersonalScore
-                account = response.Account
+                let age = response.Age
+                let gender = response.Gender 
+                let province = response.ProvinceName
+                let sector = response.Sector
+                let marriageStatus = response.MarriageStatus
+                let education = response.Education
+                let account = response.Account
+                let showAccount = response.Account
                 console.log(account)
+
+                const summary = {};
+                funds = []
+                for (let i = 0; i < account[1].FundProfile.length; i++){
+                    j = i
+                    funds.push(account[1].FundProfile[i])
+                }
+
+	
+                // Loop through the funds and aggregate the values
+                funds.forEach((fund) => {
+                    if (!summary[fund.Fund_name]) {
+                    summary[fund.Fund_name] = {
+                        TotalAmount: fund.Amount,
+                        TotalValue: fund.Value,
+                    };
+                    } else {
+                    summary[fund.Fund_name].TotalAmount += fund.Amount;
+                    summary[fund.Fund_name].TotalValue += fund.Value;
+                    }
+                });
+               
+
+                // Print the summarized data
+                for (const fundName in summary) {
+                    $("#transaction").append(`<div>กองทุน: ${fundName} Total Amount: ${summary[fundName].TotalAmount}Total Value: ${summary[fundName].TotalValue.toFixed(2)}</div>`)
+                    console.log(`Fund Name: ${fundName}`);
+                    console.log(`Total Amount: ${summary[fundName].TotalAmount}`);
+                    console.log(`Total Value: ${summary[fundName].TotalValue.toFixed(2)}\n`);
+                }
 
                 document.getElementById("name").innerHTML = "ชื่อ : " + name
                 document.getElementById("tel").innerHTML = "เบอร์โทร : " + tel
@@ -35,6 +72,23 @@ function getUser(citizenId) {
                 document.getElementById("dob").innerHTML = "วันเกิด  : " + dob
                 document.getElementById("job").innerHTML = "อาชีพ : " + job
                 document.getElementById("salary").innerHTML = "เงินเดือน : " + salary
+                document.getElementById("age").innerHTML = "อายุ : " + age
+                document.getElementById("gender").innerHTML = "เพศ : " + gender
+                document.getElementById("provinceName").innerHTML = "จังหวัด : " + province
+                document.getElementById("sector").innerHTML = "ภาค : " + sector
+                document.getElementById("marriageStatus").innerHTML = "สถานะสมรส : " + marriageStatus
+                document.getElementById("education").innerHTML = "การศึกษา : " + education
+                text_acc = "save_acc"
+                for (let i = 0; i < showAccount.length; i++) {
+                    console.log(showAccount[i])
+                    if (showAccount[i].AccountType == 'ออมทรัพย์'){
+                        text_acc = "save_acc"
+                    }else{
+                        text_acc = "fund_acc"
+                    }
+                    $("#account_data").append('<div class="'+ text_acc +'" id="account_card"><h5>'+showAccount[i].AccountNumber+'</h5><h6>' + showAccount[i].AccountType +'</h6></div>')
+                }
+
                 if (PersonalScore == 1) {
                     text = " (กลุ่มอ่อนไหว)"
                 } else {

@@ -158,4 +158,18 @@
     justify-content: center;
     margin-top: 20px;
     align-items: center;
+
+}
+
+div{
+    padding: 5px;
+}
+#button_part{
+    display: flex;
+    justify-content: end;
+}
+
+#buy_part{
+    display: flex;
+    justify-content: end;
 }

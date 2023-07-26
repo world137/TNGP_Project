@@ -3,9 +3,22 @@ $(function () {
     $("#insert_snackbar").load("../component/snackbar.html");
     let id = localStorage.getItem("id")
     let fund_name_th = localStorage.getItem("proj_name_th")
+    let nav = localStorage.getItem("nav_price")
     
+    document.getElementById("nav_for_buy").innerHTML = 'ราคาต่อหน่วย: ' + nav
+    // document.getElementById("total_price").innerHTML = parseFloat(nav) 
+
     getUser(id,fund_name_th)
 })
+
+function calculate(){
+    str_price = document.getElementById("price").value
+    total_nav = localStorage.getItem("nav_price")
+console.log("sdknfasd:",str_price,total_nav)
+    sum = parseFloat(str_price) * parseFloat(total_nav)
+    document.getElementById("total_price").innerHTML = 'ราคา:' + sum.toFixed(2)
+    
+}
 function getUser(citizenId,fund_name_th) {
     if (citizenId != null && citizenId != undefined) {
         $.ajax({
@@ -34,7 +47,7 @@ function getUser(citizenId,fund_name_th) {
 
                 document.getElementById("fund_name_th").innerHTML = fund_name_th
                 document.getElementById("balance_saving").innerHTML = `Saving account Balance : ${account[0].AccountBalance} Baht`
-                document.getElementById("balance_fund").innerHTML = `Fund account Balance : ${account[1].AccountBalance} Baht`
+                document.getElementById("balance_fund").innerHTML = `ยอดเงินบัญชีกองทุน: ${account[1].AccountBalance} Baht`
 
                 localStorage.setItem("id", citizenId)
                 localStorage.setItem("customername", name)
@@ -47,16 +60,16 @@ function getUser(citizenId,fund_name_th) {
     }
 }
 
-$("#submit").on("click", function (event) {
+$("#submit_buy").on("click", function (event) {
     event.preventDefault()
     // Define an array to hold question numbers
     let id = localStorage.getItem("id")
     var amount = document.getElementById("price").value;
     let nav_price = localStorage.getItem("nav_price")
-    let fund_name = localStorage.getItem("fund_name")
-    value = parseInt(amount) * parseInt(nav_price)
+    let fund_name = localStorage.getItem("proj_name_th")
+    value = parseInt(amount) * parseFloat(nav_price)
     
-    setUserData(value,id,fund_name,amount)
+    setUserData(parseInt(value),id,fund_name,amount)
 })
 
 function setUserData(value,id,fund_name,amount) {
@@ -68,10 +81,10 @@ function setUserData(value,id,fund_name,amount) {
             success: function (response) {
                 console.log()
                 
-                window.location.href = "../../frontend/html/buyFund.html"
+                window.location.href = "../../frontend/html/customerInfo.html"
             },
             error: function (xhr, status, error) {
-                error_notification('ไม่สามารถอัปเดทข้อมูลได้')
+                error_notification('ไม่สามารถซื้อกองทุนได้')
                 console.error("Error:", error);
             }
         });

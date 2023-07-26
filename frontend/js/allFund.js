@@ -26,6 +26,7 @@ function show_all_fund(asset_management_id) {
                 totalCards = response.length;
                 
                 for (let index = 0 ; index < totalCards ;index ++){
+
                     if (response[index].fund_status != "EX" && response[index].fund_status != "CA" && response[index].fund_status != "LI" ){
                         data.push(response[index])
                     }
@@ -39,13 +40,18 @@ function show_all_fund(asset_management_id) {
                 var cardsHtml = "";
 
                 for (let index = startIndex; index < endIndex; index++) {
-                    if (data[index].fund_status != "EX" && data[index].fund_status != "CA" && data[index].fund_status != "LI" ){
-                      let params = `${data[index].proj_name_th},${data[index].proj_name_en},${data[index].proj_id}`
+
+                    if (data.length != 0 ){
+                      //let params = `${data[index].proj_name_th},${data[index].proj_name_en},${data[index].proj_id}`
                       //console.log(params.split(","))
-                      cardsHtml += "<div onclick=\"send_proj_id('" + data[index].proj_id + "');send_fund_name('" +data[index].proj_name_th + "');send_fund_en('" + data[index].proj_name_en + "')\" class='card' id='card" + data[index].proj_id + "'>";
                       //cardsHtml += "<div onclick=send_proj_id('" + data[index].proj_id + "', '" + data[index].proj_name_th + "', '" + data[index].proj_name_en + "'); class='card' id='card" + data[index].proj_id +  data[index].proj_name_th + data[index].proj_name_en + "'>";
-                      cardsHtml += "<div class='card-body'><div id='card_name'><h6 id='name_th'>" + data[index].proj_name_th + "</h6><h6 id='name_en'>" + data[index].proj_name_en + "</h6></div></div>";
+                      cardsHtml += "<div onclick=\"send_proj_id('" + data[index].proj_id + "');send_fund_name('" +data[index].proj_name_th + "');send_fund_en('" + data[index].proj_name_en + "');send_fund_abbr('" + data[index].proj_abbr_name + "')\" class='card' id='card" + data[index].proj_id + "'>";
+                      cardsHtml += "<div class='card-body'><div id='card_name'><h6 id='name_th'>" + data[index].proj_name_th + " (" + data[index].proj_abbr_name + ") " + "</h6><h6 id='name_en'>" + data[index].proj_name_en + "</h6></div></div>";
                       cardsHtml += "</div>";
+                    }else{
+                        cardsHtml += "<div class='card-body'><div id='card_name'><h6 id='name_th'>" + "ไม่มีกองทุน" + "" + "</h6><h6 id='name_en'>" + "</h6></div></div>";
+                        cardsHtml += "</div>";
+                        break
                     }
                 }
 
@@ -87,7 +93,7 @@ function show_all_fund(asset_management_id) {
 
 function search_by_card_name(searchTerm) {
     var matchingCards = data.filter(function (card) {
-        var cardName = card.proj_name_th.toLowerCase() + card.proj_name_en.toLowerCase();
+        var cardName = card.proj_name_th.toLowerCase() + card.proj_name_en.toLowerCase() + card.proj_abbr_name.toLowerCase();
         return cardName.includes(searchTerm);
     });
 
@@ -103,8 +109,11 @@ function search_by_card_name(searchTerm) {
     var cardsHtml = "";
 
     for (let index = startIndex; index < endIndex; index++) {
-        cardsHtml += "<div onclick=send_proj_id('" + matchingCards[index].proj_id + "') class='card' id='card" + matchingCards[index].proj_id + "'>";
-        cardsHtml += "<div class='card-body'><div id='card_name'><h6>" + matchingCards[index].proj_name_th + "</h6><h6>" + matchingCards[index].proj_name_en + "</h6></div></div>";
+        // cardsHtml += "<div onclick=send_proj_id('" + matchingCards[index].proj_id + "') class='card' id='card" + matchingCards[index].proj_id + "'>";
+        // cardsHtml += "<div class='card-body'><div id='card_name'><h6>" + matchingCards[index].proj_name_th + "</h6><h6>" + matchingCards[index].proj_name_en + "</h6></div></div>";
+        // cardsHtml += "</div>";
+        cardsHtml += "<div onclick=\"send_proj_id('" + matchingCards[index].proj_id + "');send_fund_name('" + matchingCards[index].proj_name_th + "');send_fund_en('" + matchingCards[index].proj_name_en + "');send_fund_abbr('" + matchingCards[index].proj_abbr_name + "')\" class='card' id='card" + matchingCards[index].proj_id + "'>";
+        cardsHtml += "<div class='card-body'><div id='card_name'><h6 id='name_th'>" + matchingCards[index].proj_name_th + " (" + matchingCards[index].proj_abbr_name + ") " + "</h6><h6 id='name_en'>" + matchingCards[index].proj_name_en + "</h6></div></div>";
         cardsHtml += "</div>";
     }
 
@@ -172,7 +181,7 @@ function send_proj_id(proj_id) {
     var currentdate = new Date();
     var today = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate()
     localStorage.setItem("proj_id", proj_id)
-    localStorage.setItem("nav_date", "2023-07-20")
+    localStorage.setItem("nav_date", "2023-07-21")
     
     window.location.href = "../../frontend/html/fundDetail.html" //
 }
@@ -184,4 +193,8 @@ function send_fund_name(proj_name_th) {
 
 function send_fund_en(proj_name_en){
     localStorage.setItem("proj_name_en", proj_name_en)
+}
+
+function send_fund_abbr(proj_abbr_name){
+    localStorage.setItem("proj_abbr_name", proj_abbr_name)
 }
