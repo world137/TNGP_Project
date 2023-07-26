@@ -16,7 +16,9 @@ function show_NAV(proj_id, nav_date) {
             type: "GET",
             dataType: "json",
             success: function (response) {
+
                 if (response != undefined && response != "" && response != []) {
+                    localStorage.setItem("nav_price",response.last_val)
                     console.log(response)
                     if (response.amc_info != null) {
                         var lastest = parseFloat(response.last_val)
@@ -53,6 +55,7 @@ function show_NAV(proj_id, nav_date) {
                     $("#nav").append(`<div>มูลค่าหน่วยลงทุนของวันก่อนหน้า (บาท/หน่วย): - </div>`)
                     $("#nav").append(`<div>เปอร์เซ็นต์: - %</div>`)
                 }
+
 
             },
             error: function (xhr, status, error) {
