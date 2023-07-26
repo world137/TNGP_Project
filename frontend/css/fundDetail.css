@@ -1,74 +1,157 @@
-:root{
+:root {
     --white: #ffffff;
     --text_hover: #EC008C;
 }
 
 #navbar_dropdown_asset_management_link,
-#fund_link{
+#fund_link {
     color: var(--text_hover);
 }
-#block{
+
+#block {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
     width: 60vh;
 }
-#feeblockClassless{
+
+#feeblockClassless {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
     width: 56vh;
     display: none;
 }
-#feeblockClassA{
+
+#feeblockClassA {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
     width: 56vh;
     display: none;
 }
-#feeblockClassD{
+
+#feeblockClassD {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
     width: 56vh;
     display: none;
 }
-#feeblockClassE{
+
+#feeblockClassE {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
     width: 56vh;
     display: none;
 }
-#feeClassless{
+
+#feeClassless {
     display: none;
 }
-#feeClassA{
+
+#feeClassA {
     display: none;
 }
-#feeClassD{
+
+#feeClassD {
     display: none;
 }
-#feeClassE{
+
+#feeClassE {
     display: none;
 }
-#data_part{
+
+#feeblockClassP {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    width: 56vh;
+    display: none;
+}
+
+#feeClassP {
+    display: none;
+}
+
+#feeblockClassB {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    width: 56vh;
+    display: none;
+}
+
+#feeClassB {
+    display: none;
+}
+
+#feeblockClassSSF {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    width: 56vh;
+    display: none;
+}
+
+#feeClassSSF {
+    display: none;
+}
+
+#feeblockClassSSFX {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    width: 56vh;
+    display: none;
+}
+
+#feeClassSSFX {
+    display: none;
+}
+
+#feeblockClassC {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    width: 56vh;
+    display: none;
+}
+
+#feeClassC {
+    display: none;
+}
+
+#feeblockClassI {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    width: 56vh;
+    display: none;
+}
+
+#feeClassI {
+    display: none;
+}
+
+#data_part {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#content{
+
+#content {
     margin: 20px;
 }
 
-#fund_data{
+#fund_data {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
 }
 
-#pdf_part{
+#pdf_part {
     display: flex;
     flex-direction: column;
     width: 100%;
