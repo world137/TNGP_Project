@@ -4,7 +4,7 @@ $(function () {
     let id = localStorage.getItem("id")
     let fund_name_th = localStorage.getItem("proj_name_th")
     let nav = localStorage.getItem("nav_price")
-    
+    console.log(nav)
     document.getElementById("nav_for_buy").innerHTML = 'ราคาต่อหน่วย: ' + nav
     // document.getElementById("total_price").innerHTML = parseFloat(nav) 
 
@@ -14,9 +14,8 @@ $(function () {
 function calculate(){
     str_price = document.getElementById("price").value
     total_nav = localStorage.getItem("nav_price")
-console.log("sdknfasd:",str_price,total_nav)
-    sum = parseFloat(str_price) * parseFloat(total_nav)
-    document.getElementById("total_price").innerHTML = 'ราคา:' + sum.toFixed(2)
+    sum = parseFloat(str_price) / parseFloat(total_nav)
+    document.getElementById("total_price").innerHTML = 'จำนวนหน่วย:' + sum.toFixed(2)
     
 }
 function getUser(citizenId,fund_name_th) {
@@ -67,7 +66,7 @@ $("#submit_buy").on("click", function (event) {
     var amount = document.getElementById("price").value;
     let nav_price = localStorage.getItem("nav_price")
     let fund_name = localStorage.getItem("proj_name_th")
-    value = parseInt(amount) * parseFloat(nav_price)
+    value = parseInt(amount) / parseFloat(nav_price)
     
     setUserData(parseInt(value),id,fund_name,amount)
 })

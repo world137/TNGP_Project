@@ -69,7 +69,7 @@ function getUser(citizenId) {
 
                 // Print the summarized data
                 for (const fundName in summary) {
-                    $("#transaction").append(`<div>กองทุน: ${fundName} จำนวนหน่วย: ${summary[fundName].TotalAmount} ปริมาณที่ลงทุน: ${summary[fundName].TotalValue.toFixed(2)}</div>`)
+                    $("#transaction").append(`<div>กองทุน: ${fundName} ปริมาณที่ลงทุน: ${summary[fundName].TotalAmount} จำนวนหน่วย: ${summary[fundName].TotalValue.toFixed(2)}</div>`)
                     console.log(`Fund Name: ${fundName}`);
                     console.log(`จำนวนหน่วย: ${summary[fundName].TotalAmount}`);
                     console.log(`ปริมาณที่ลงทุน: ${summary[fundName].TotalValue.toFixed(2)}\n`);
