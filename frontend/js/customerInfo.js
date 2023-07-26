@@ -63,7 +63,7 @@ function getUser(citizenId) {
                 // console.log(fundArr[1].Fund_name)
                 for (let i = 0; i < fundArr.length; i++) {
                     fundName.push(fundArr[i].Fund_name)
-                    fundAmount.push(parseFloat(fundArr[i].Value))
+                    fundAmount.push(parseFloat(fundArr[i].Amount))
                 }
                 getGraph()
 

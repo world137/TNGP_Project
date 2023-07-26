@@ -40,9 +40,6 @@
                 <h3 class="space-top">ค่าธรรมเนียม</h3>
                 <div id="block">
 
-
-
-
                     <div id="feeblockClassless">
                         <div id="feeClassless"></div>
                     </div>
@@ -72,56 +69,11 @@
                     </div>
                     <div id="feeblockClassI">
                         <div id="feeClassI"></div>
-                        
-
-
                         <div id="lastest_date"></div>
-
                     </div>
 
                     <!-- <a class="btn btn-success" href="../../frontend/html/buyFund.html" role="button">ซื้อกองทุน</a> -->
-
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-modal-lg" role="document">
-                            <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">ซื้อกองทุน</h5>
-                                    <button id="buy_button" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 id="fund_name_th"></h2>
-                                    <!-- <div id="balance_saving"></div> -->
-                                    <div id="balance_fund"></div>
-                                    <div id="nav_for_buy"></div>
-
-                                    <form onsubmit="handleSubmit()">
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput">กรอกจำนวนเงิน</label>
-                                            <input onchange="calculate()" type="number" min="0" class="form-control"
-                                                id="price" placeholder="กรอกจำนวนเงิน">
-                                        </div>
-                                        <div id="button_part">
-                                            <div id="total_price"></div>
-                                            <button type="submit" class="btn btn-primary" data-dismiss="modal"
-                                                id="submit_buy">ยืนยัน</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-                                <button type="button" class="btn btn-primary">บันทึก</button>
-                            </div> -->
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
                 <!-- <div id="fee"></div> -->
                 <div id="pdf_part">
                     <h3>เอกสารชี้ชวน</h3>
@@ -129,8 +81,48 @@
                 </div>
             </div>
 
+
         </div>
         <div id="insert_snackbar"></div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-modal-lg" role="document">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">ซื้อกองทุน</h5>
+                            <button id="buy_button" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h2 id="fund_name_th"></h2>
+                            <!-- <div id="balance_saving"></div> -->
+                            <div id="balance_fund"></div>
+                            <div id="nav_for_buy"></div>
+
+                            <form onsubmit="handleSubmit()">
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput">กรอกจำนวนเงิน</label>
+                                    <input onchange="calculate()" type="number" min="0" class="form-control" id="price"
+                                        placeholder="กรอกจำนวนเงิน">
+                                </div>
+                                <div id="button_part">
+                                    <div id="total_price"></div>
+                                    <button type="submit" class="btn btn-primary" data-dismiss="modal"
+                                        id="submit_buy">ยืนยัน</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+        <button type="button" class="btn btn-primary">บันทึก</button>
+    </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 </body>

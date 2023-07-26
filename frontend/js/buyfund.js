@@ -48,7 +48,7 @@ function getUser(citizenId,fund_name_th) {
                 account = response.Account
 
                 document.getElementById("fund_name_th").innerHTML = fund_name_th
-                document.getElementById("balance_saving").innerHTML = `Saving account Balance : ${account[0].AccountBalance} Baht`
+                // document.getElementById("balance_saving").innerHTML = `Saving account Balance : ${account[0].AccountBalance} Baht`
                 document.getElementById("balance_fund").innerHTML = `ยอดเงินบัญชีกองทุน: ${account[1].AccountBalance} Baht`
 
                 localStorage.setItem("id", citizenId)
