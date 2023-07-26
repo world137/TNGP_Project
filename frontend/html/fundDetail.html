@@ -14,8 +14,15 @@
 <body>
     <div id="insert_navbar"></div>
     <div id="content">
-        <h3 id="fundname"> <h2 id="abbr" style="text-align: right;"></h2></h3>
-        
+        <h3 id="fundname">
+            <h2 id="abbr" style="text-align: right;"></h2>
+            <div id="buy_part">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                    ซื้อ
+                </button>
+            </div>
+        </h3>
+
         <hr>
         <div id="fund_data">
             <div id="data_part">
@@ -27,8 +34,9 @@
                     
                     <div id="dividend"></div>
                     <div id="risk"></div>
-                    
-                    <br/>
+
+                    <div id="fundcompare"></div><br />
+
                     <p>
                         <center><b>ค่าธรรมเนียม</b></center>
                     </p>
@@ -42,14 +50,70 @@
                         <div id="feeClassD"></div>
                     </div><br />
                     <div id="feeblockClassE">
-                        <div id="feeClassE"></div><br />
+                        <div id="feeClassE"></div>
+                    </div><br />
+                    <div id="feeblockClassP">
+                        <div id="feeClassP"></div>
+                    </div><br />
+                    <div id="feeblockClassB">
+                        <div id="feeClassB"></div>
+                    </div><br />
+                    <div id="feeblockClassSSF">
+                        <div id="feeClassSSF"></div>
+                    </div><br />
+                    <div id="feeblockClassSSFX">
+                        <div id="feeClassSSFX"></div>
+                    </div><br />
+                    <div id="feeblockClassC">
+                        <div id="feeClassC"></div>
+                    </div><br />
+                    <div id="feeblockClassI">
+                        <div id="feeClassI"></div>
                     </div><br />
 
                     <div id="lastest_date"></div>
                 </div>
 
-                <a class="btn btn-success" href="../../frontend/html/buyFund.html" role="button">ซื้อกองทุน</a>
+                <!-- <a class="btn btn-success" href="../../frontend/html/buyFund.html" role="button">ซื้อกองทุน</a> -->
 
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">ซื้อกองทุน</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h2 id="fund_name_th"></h2>
+                                <!-- <div id="balance_saving"></div> -->
+                                <div id="balance_fund"></div>
+                                <div id="nav_for_buy"></div>
+
+                                <form onsubmit="handleSubmit()">
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">กรอกจำนวนหน่วย</label>
+                                        <input onchange="calculate()" type="number" min="0" class="form-control"
+                                            id="price" placeholder="กรอกจำนวนหน่วย">
+                                    </div>
+                                    <div id="button_part">
+                                        <div id="total_price"></div>
+                                        <button type="submit" class="btn btn-primary" data-dismiss="modal"
+                                            id="submit_buy">ยืนยัน</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                                <button type="button" class="btn btn-primary">บันทึก</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- <div id="fee"></div> -->
@@ -60,6 +124,7 @@
         </div>
 
     </div>
+    <div id="insert_snackbar"></div>
 
 
 </body>
@@ -85,5 +150,29 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+<script src="/frontend/js/buyfund.js"></script>
+
+<script>
+    function handleSubmit() {
+        const formData = new FormData(event.target);
+        var id = localStorage.getItem("id")
+        var price = document.getElementById("price").value;
+        fetch(`/updateBalance/${id}/${price}`, {
+            method: 'POST',
+            body: formData
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+            .then(data => {
+
+            })
+            .catch(error => {
+                console.error('Fetch Error:', error);
+            });
+    }
+</script>
 
 </html>

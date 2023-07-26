@@ -33,6 +33,7 @@ function getUser(citizenId) {
                 let marriageStatus = response.MarriageStatus
                 let education = response.Education
                 let account = response.Account
+                let showAccount = response.Account
                 console.log(account)
 
                 const summary = {};
@@ -78,13 +79,14 @@ function getUser(citizenId) {
                 document.getElementById("marriageStatus").innerHTML = "สถานะสมรส : " + marriageStatus
                 document.getElementById("education").innerHTML = "การศึกษา : " + education
                 text_acc = "save_acc"
-                for (let i = 0; i < account.length; i++) {
-                    if (account[i].AccountType = 'ออมทรัพย์'){
+                for (let i = 0; i < showAccount.length; i++) {
+                    console.log(showAccount[i])
+                    if (showAccount[i].AccountType == 'ออมทรัพย์'){
                         text_acc = "save_acc"
                     }else{
                         text_acc = "fund_acc"
                     }
-                    $("#account_data").append('<div class="'+ text_acc +'" id="account_card"><h5>'+account[i].AccountNumber+'</h5><h6>' + account[i].AccountType +'</h6></div>')
+                    $("#account_data").append('<div class="'+ text_acc +'" id="account_card"><h5>'+showAccount[i].AccountNumber+'</h5><h6>' + showAccount[i].AccountType +'</h6></div>')
                 }
 
                 if (PersonalScore == 1) {
