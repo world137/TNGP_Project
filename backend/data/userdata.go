@@ -36,6 +36,7 @@ func GetCustomerList() []model.Customer {
 					AccountName:    "สมชาย",
 					AccountType:    "ออมทรัพย์",
 					AccountBalance: 10000,
+					FundProfile:    []model.FundProfile{},
 				},
 				{
 					AccountId:      "001b",
@@ -43,6 +44,7 @@ func GetCustomerList() []model.Customer {
 					AccountName:    "สมชาย",
 					AccountType:    "กองทุน",
 					AccountBalance: 10000,
+					FundProfile:    []model.FundProfile{},
 				},
 			},
 		},
@@ -78,6 +80,7 @@ func GetCustomerList() []model.Customer {
 					AccountName:    "สมหญิง",
 					AccountType:    "ออมทรัพย์",
 					AccountBalance: 10500,
+					FundProfile:    []model.FundProfile{},
 				},
 				{
 					AccountId:      "001d",
@@ -85,6 +88,7 @@ func GetCustomerList() []model.Customer {
 					AccountName:    "สมหญิง",
 					AccountType:    "กองทุน",
 					AccountBalance: 66000,
+					FundProfile:    []model.FundProfile{},
 				},
 			},
 		},

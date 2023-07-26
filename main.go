@@ -76,7 +76,6 @@ func createCustomer(stroage provider.StroageProvider) {
 					AccountType:    "กองทุน",
 					AccountBalance: 10000,
 					FundProfile:    []model.FundProfile{},
-
 				},
 			},
 		},

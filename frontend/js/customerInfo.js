@@ -25,8 +25,14 @@ function getUser(citizenId) {
                 let job = response.Job
                 let salary = response.MinIncome + " - " + response.MaxIncome
                 let risk = response.Risk
-                let PersonallScore = response.PersonalScore
-                account = response.Account
+                let PersonalScore = response.PersonalScore
+                let age = response.Age
+                let gender = response.Gender 
+                let province = response.ProvinceName
+                let sector = response.Sector
+                let marriageStatus = response.MarriageStatus
+                let education = response.Education
+                let account = response.Account
                 console.log(account)
 
                 const summary = {};
@@ -65,6 +71,22 @@ function getUser(citizenId) {
                 document.getElementById("dob").innerHTML = "วันเกิด  : " + dob
                 document.getElementById("job").innerHTML = "อาชีพ : " + job
                 document.getElementById("salary").innerHTML = "เงินเดือน : " + salary
+                document.getElementById("age").innerHTML = "อายุ : " + age
+                document.getElementById("gender").innerHTML = "เพศ : " + gender
+                document.getElementById("provinceName").innerHTML = "จังหวัด : " + province
+                document.getElementById("sector").innerHTML = "ภาค : " + sector
+                document.getElementById("marriageStatus").innerHTML = "สถานะสมรส : " + marriageStatus
+                document.getElementById("education").innerHTML = "การศึกษา : " + education
+                text_acc = "save_acc"
+                for (let i = 0; i < account.length; i++) {
+                    if (account[i].AccountType = 'ออมทรัพย์'){
+                        text_acc = "save_acc"
+                    }else{
+                        text_acc = "fund_acc"
+                    }
+                    $("#account_data").append('<div class="'+ text_acc +'" id="account_card"><h5>'+account[i].AccountNumber+'</h5><h6>' + account[i].AccountType +'</h6></div>')
+                }
+
                 if (PersonalScore == 1) {
                     text = " (กลุ่มอ่อนไหว)"
                 } else {
