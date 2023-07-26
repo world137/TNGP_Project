@@ -42,9 +42,14 @@ func SetBalance(stroage provider.StroageProvider) {
 						Value:     float64(value),
 					}
 					fmt.Println(fundProfile1)
-					v.Account[0].AccountBalance = v.Account[0].AccountBalance - value
-					v.Account[1].AccountBalance = v.Account[1].AccountBalance + value
-					v.Account[1].FundProfile = append(v.Account[1].FundProfile, (fundProfile1))
+					// v.Account[0].AccountBalance = v.Account[0].AccountBalance - value
+					if v.Account[1].AccountBalance < value {
+						http.Error(w, err.Error(), http.StatusInternalServerError)
+					} else {
+						v.Account[1].AccountBalance = v.Account[1].AccountBalance - value
+						v.Account[1].FundProfile = append(v.Account[1].FundProfile, (fundProfile1))
+					}
+
 					break
 				}
 			}

@@ -172,11 +172,12 @@ $("#more_fund").on("click", function () {
     window.location.href = "../../frontend/html/assetManagement.html";
 });
 
-function find(id, name_th, name_en) {
+function find(id, name_th, name_en,proj_abbr_name) {
     localStorage.removeItem("proj_id");
     localStorage.setItem("proj_id", id)
     localStorage.setItem("proj_name_th", name_th)
     localStorage.setItem("proj_name_en", name_en)
+    localStorage.setItem("proj_abbr_name",proj_abbr_name)
     window.location.href = "../../frontend/html/fundDetail.html"
 
 }
