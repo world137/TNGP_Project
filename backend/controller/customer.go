@@ -30,7 +30,7 @@ func CustomerData(stroage provider.StroageProvider) {
 			fmt.Println(returncustomer)
 
 			CustomerData, err := json.Marshal(&returncustomer)
-			fmt.Println(string(CustomerData))
+			//fmt.Println(string(CustomerData))
 			if err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return

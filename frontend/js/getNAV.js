@@ -20,7 +20,7 @@ function show_NAV(proj_id, nav_date) {
                 var lastest  = parseFloat(response.last_val)
                 var previous = parseFloat(response.previous_val)
                 var sell = parseFloat(response.amc_info[0].sell_price)
-                
+                localStorage.setItem("nav_price",response.last_val)
                 var diff = (((lastest - sell) / lastest) * 100)
                 
                 $("#nav").append(`<div>วันที่แก้ไขข้อมูลล่าสุด: ${toThaiDateString(response.last_upd_date)}</div>`)

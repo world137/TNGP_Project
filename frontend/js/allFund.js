@@ -6,7 +6,7 @@ $(function () {
     }
     let asset_management_id = localStorage.getItem("asset_management_id")
 
-    //localStorage.clear()
+
     show_all_fund(asset_management_id)
 })
 var currentPage = 1;
@@ -42,8 +42,7 @@ function show_all_fund(asset_management_id) {
                     if (data[index].fund_status != "EX" && data[index].fund_status != "CA" && data[index].fund_status != "LI" ){
                       let params = `${data[index].proj_name_th},${data[index].proj_name_en},${data[index].proj_id}`
                       //console.log(params.split(","))
-                      cardsHtml += "<div onclick=send_proj_id('" + data[index].proj_id + "') class='card' id='card" + data[index].proj_id + "'>";
-                      selectedIndex = index;
+                      cardsHtml += "<div onclick=\"send_proj_id('" + data[index].proj_id + "');send_fund_name('" +data[index].proj_name_th + "');send_fund_en('" + data[index].proj_name_en + "')\" class='card' id='card" + data[index].proj_id + "'>";
                       //cardsHtml += "<div onclick=send_proj_id('" + data[index].proj_id + "', '" + data[index].proj_name_th + "', '" + data[index].proj_name_en + "'); class='card' id='card" + data[index].proj_id +  data[index].proj_name_th + data[index].proj_name_en + "'>";
                       cardsHtml += "<div class='card-body'><div id='card_name'><h6 id='name_th'>" + data[index].proj_name_th + "</h6><h6 id='name_en'>" + data[index].proj_name_en + "</h6></div></div>";
                       cardsHtml += "</div>";
@@ -51,7 +50,7 @@ function show_all_fund(asset_management_id) {
                 }
 
                 $("#all_fund_name").append(cardsHtml);
-                send_fund_name(data[selectedIndex].proj_name_th, data[selectedIndex].proj_name_en)
+                
 
 
                 var totalPages = Math.ceil(totalCards / cardsPerPage);
@@ -174,10 +173,15 @@ function send_proj_id(proj_id) {
     var today = currentdate.getFullYear() + "-" + (currentdate.getMonth() + 1) + "-" + currentdate.getDate()
     localStorage.setItem("proj_id", proj_id)
     localStorage.setItem("nav_date", "2023-07-20")
+    
     window.location.href = "../../frontend/html/fundDetail.html" //
 }
 
-function send_fund_name(proj_name_th, proj_name_en) {
+function send_fund_name(proj_name_th) {
     localStorage.setItem("proj_name_th", proj_name_th)
+    
+}
+
+function send_fund_en(proj_name_en){
     localStorage.setItem("proj_name_en", proj_name_en)
 }
