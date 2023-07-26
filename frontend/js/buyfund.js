@@ -4,12 +4,14 @@ $(function () {
     let id = localStorage.getItem("id")
     let fund_name_th = localStorage.getItem("proj_name_th")
     let nav_show = localStorage.getItem("nav_price")
-    console.log(nav)
-    document.getElementById("nav_for_buy").innerHTML = 'ราคาต่อหน่วย: ' + nav_show
+    console.log(nav_show)
+    // document.getElementById("nav_for_buy").innerHTML = 'ราคาต่อหน่วย: ' + nav_show
     // document.getElementById("total_price").innerHTML = parseFloat(nav) 
 
     getUser(id,fund_name_th)
 })
+
+    
 
 function calculate(){
     str_price = document.getElementById("price").value

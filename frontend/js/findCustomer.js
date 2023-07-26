@@ -1,5 +1,7 @@
 $(window).on('load', function() {
     $('#exampleModalLong').modal('show');
+    localStorage.setItem("nav_date", "2023-07-21")
+
 });
 
 $(function () {
