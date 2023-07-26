@@ -3,9 +3,9 @@ $(function () {
     $("#insert_snackbar").load("../component/snackbar.html");
     let id = localStorage.getItem("id")
     let fund_name_th = localStorage.getItem("proj_name_th")
-    let nav = localStorage.getItem("nav_price")
+    let nav_show = localStorage.getItem("nav_price")
     console.log(nav)
-    document.getElementById("nav_for_buy").innerHTML = 'ราคาต่อหน่วย: ' + nav
+    document.getElementById("nav_for_buy").innerHTML = 'ราคาต่อหน่วย: ' + nav_show
     // document.getElementById("total_price").innerHTML = parseFloat(nav) 
 
     getUser(id,fund_name_th)
@@ -14,6 +14,7 @@ $(function () {
 function calculate(){
     str_price = document.getElementById("price").value
     total_nav = localStorage.getItem("nav_price")
+    console.log(total_nav)
     sum = parseFloat(str_price) / parseFloat(total_nav)
     document.getElementById("total_price").innerHTML = 'จำนวนหน่วย:' + sum.toFixed(2)
     

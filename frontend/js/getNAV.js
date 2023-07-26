@@ -18,7 +18,7 @@ function show_NAV(proj_id, nav_date) {
             success: function (response) {
 
                 if (response != undefined && response != "" && response != []) {
-                    localStorage.setItem("nav_price", response.last_val)
+                    // localStorage.setItem("nav_price", response.last_val)
                     console.log(response)
                     if (response.amc_info != null) {
                         var lastest = parseFloat(response.last_val)
@@ -40,6 +40,7 @@ function show_NAV(proj_id, nav_date) {
                     $("#nav").append(`<div>เปอร์เซ็นต์: ${diff.toFixed(2)} %</div>`)
                     $("#lastest_date").append(`<div>วันที่แก้ไขข้อมูลล่าสุด: ${toThaiDateString(response.last_upd_date)}</div>`)
                     localStorage.setItem("nav_price", response.last_val)
+                    console.log(response.last_val)
 
                 } else {
                     console.log(response)
