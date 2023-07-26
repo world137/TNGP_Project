@@ -12,14 +12,13 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
-    width: 60vh;
+    width: 50vw;
 }
 
-#feeblockClassless {
+/* #feeblockClassless {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
-    width: 56vh;
     display: none;
 }
 
@@ -27,7 +26,6 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
-    width: 56vh;
     display: none;
 }
 
@@ -35,7 +33,6 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
-    width: 56vh;
     display: none;
 }
 
@@ -43,9 +40,8 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
-    width: 56vh;
     display: none;
-}
+} */
 
 #feeClassless {
     display: none;
@@ -87,49 +83,49 @@
     display: none;
 }
 
-#feeblockClassSSF {
+/* #feeblockClassSSF {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
     width: 56vh;
     display: none;
-}
+} */
 
 #feeClassSSF {
     display: none;
 }
 
-#feeblockClassSSFX {
+/* #feeblockClassSSFX {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
     width: 56vh;
     display: none;
-}
+} */
 
 #feeClassSSFX {
     display: none;
 }
 
-#feeblockClassC {
+/* #feeblockClassC {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
     width: 56vh;
     display: none;
-}
+} */
 
 #feeClassC {
     display: none;
 }
 
-#feeblockClassI {
+/* #feeblockClassI {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 15px;
     width: 56vh;
     display: none;
-}
+} */
 
 #feeClassI {
     display: none;
@@ -172,4 +168,8 @@ div{
 #buy_part{
     display: flex;
     justify-content: end;
+}
+
+.space-top{
+    margin-top: 20px;
 }
