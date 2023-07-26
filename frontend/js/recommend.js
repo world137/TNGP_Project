@@ -91,11 +91,15 @@ $(document).ready(function () {
         $(".selected_fund_card").empty();
 
         // Add selected fund cards to the compare_area
+        
         for (let i = 0; i < selectedFunds.length; i++) {
+            
             const fundCard = selectedFunds[i];
             const cloneCard = fundCard.cloneNode(true);
-            cloneCard.querySelector(".view_more").style.display = "none"; // Hide the "Select" button in the selected card
-            $("#selected_fund_" + (i + 1)).append(cloneCard);
+            console.log(cloneCard.querySelector(".data").querySelector(".data_id"))
+            // cloneCard.querySelector(".view_more").style.display = "none"; // Hide the "Select" button in the selected card
+            // $("#selected_fund_" + (i + 1)).append(cloneCard);
+            $("#selected_fund_" + (i + 1)).append(cloneCard.querySelector(".data").querySelector(".data_id") , cloneCard.querySelector(".data").querySelector(".data_th") , cloneCard.querySelector(".data").querySelector(".data_en"));
         }
     }
 
@@ -132,6 +136,7 @@ $(document).ready(function () {
             if (selectedFunds.includes(fundCard)) {
                 removeFromSelected(fundCard);
             } else {
+                
                 if (selectedFunds.length < 2) {
                     // Add the fund card to the selectedFunds array
                     selectedFunds.push(fundCard);
@@ -144,11 +149,6 @@ $(document).ready(function () {
         });
     });
 
-    // Click event to remove a selected fund card
-    // $(".compare_area").on("click", ".view_more", function () {
-    //     const fundCard = $(this).closest(".fund_card")[0];
-    //     removeFromSelected(fundCard);
-    // });
     $(".compare").on("click", ".re_select", function () {
         document.getElementById("compare_text").style.display = "flex"
 

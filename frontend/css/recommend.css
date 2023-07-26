@@ -163,21 +163,19 @@ input:checked+.slider:before {
 #risk_card5,
 #risk_card6,
 #risk_card7,
-#risk_card8{
+#risk_card10{
     background-color: orange !important;
 }
-
 .compare_area{
-    position: relative;
-    width: 100%;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    display: flex;
+    gap: 5px;
+    margin: 20px;
 }
 #selected_fund_1,#selected_fund_2{
     width: 100%;
-    
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 15px; */
+    /* padding: 10px; */
 }
 #reset_compare,#compare_text{
     display: none;
