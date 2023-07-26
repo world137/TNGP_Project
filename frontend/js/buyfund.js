@@ -54,9 +54,9 @@ $("#submit").on("click", function (event) {
     var amount = document.getElementById("price").value;
     let nav_price = localStorage.getItem("nav_price")
     let fund_name = localStorage.getItem("proj_name_th")
-    value = parseInt(amount) * parseInt(nav_price)
+    value = parseInt(amount) * parseFloat(nav_price)
     
-    setUserData(value,id,fund_name,amount)
+    setUserData(parseInt(value),id,fund_name,amount)
 })
 
 function setUserData(value,id,fund_name,amount) {
