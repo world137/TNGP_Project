@@ -1,5 +1,5 @@
 
-var fundArray = ["M0497_2546", "M0499_2559", "M0697_2562", "M0081_2555", "M0429_2556", "M0096_2545", "M0175_2563", "M0135_2563"]
+var fundArray = ["M0497_2546", "M0499_2559","M0697_2562","M0081_2555","M0429_2556" ,"M0124_2563","M0135_2563","M0077_2561","M0132_2563","M0176_2563"]
 var nav_date = localStorage.getItem("nav_date")
 $(function () {
     $("#insert_navbar").load("../component/navbar.html");
@@ -77,7 +77,6 @@ $(function () {
 
 
     for (let i = 0; i < fundArray.length; i++) {
-
         show_NAV(fundArray[i], nav_date)
     }
 });
