@@ -19,8 +19,8 @@ function get_factsheet(proj_id,proj_name_th,proj_name_en,proj_abbr_name) {
             success: function (response) {
                 console.log(response)
                 $("#fundname").append(`<div>${proj_name_th}</div>`)
-                $("#fundname").append(`<div>${proj_name_en}</div>`)
-                $("#abbr").append(`<div>${proj_abbr_name}</div>`)
+         
+                $("#fundname").append(`<div>${proj_abbr_name}</div>`)
                 $("#factSheet").append(`
                 <iframe src="https://docs.google.com/gview?url=${response.url_factsheet}&embedded=true" style="width:1200px; height:900px;" frameborder="0"></iframe>`)
 
