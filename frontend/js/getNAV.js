@@ -16,19 +16,43 @@ function show_NAV(proj_id, nav_date) {
             type: "GET",
             dataType: "json",
             success: function (response) {
-                console.log(response)
-                var lastest  = parseFloat(response.last_val)
-                var previous = parseFloat(response.previous_val)
-                var sell = parseFloat(response.amc_info[0].sell_price)
-                
-                var diff = (((lastest - sell) / lastest) * 100)
-                
-                $("#nav").append(`<div>วันที่แก้ไขข้อมูลล่าสุด: ${toThaiDateString(response.last_upd_date)}</div>`)
-                $("#nav").append(`<div>วันที่ NAV: ${toThaiDateString(response.nav_date)}</div>`)
-                $("#nav").append(`<div>มูลค่าทรัพย์สินสุทธิ (บาท): ${response.net_asset.toLocaleString("en-US")}</div>`)
-                $("#nav").append(`<div>มูลค่าหน่วยลงทุน (บาท/หน่วย): ${response.last_val}</div>`)
-                $("#nav").append(`<div>มูลค่าหน่วยลงทุนของวันก่อนหน้า (บาท/หน่วย): ${response.previous_val}</div>`)
-                $("#nav").append(`<div>เปอร์เซ็นต์: ${diff.toFixed(2)} %</div>`)
+                if (response != undefined && response != "" && response != []) {
+                    console.log(response)
+                    if (response.amc_info != null) {
+                        var lastest = parseFloat(response.last_val)
+                        var previous = parseFloat(response.previous_val)
+                        var sell = parseFloat(response.amc_info[0].sell_price)
+
+                        var diff = (((lastest - sell) / lastest) * 100)
+                    } else {
+                        console.log(response)
+                        var lastest = parseFloat(response.last_val)
+                        var previous = parseFloat(response.previous_val)
+                        var sell = previous
+
+                        var diff = (((lastest - sell) / lastest) * 100)
+                    }
+                    $("#nav").append(`<div>วันที่แก้ไขข้อมูลล่าสุด: ${toThaiDateString(response.last_upd_date)}</div>`)
+                    $("#nav").append(`<div>วันที่ NAV: ${toThaiDateString(response.nav_date)}</div>`)
+                    $("#nav").append(`<div>มูลค่าทรัพย์สินสุทธิ (บาท): ${response.net_asset.toLocaleString("en-US")}</div>`)
+                    $("#nav").append(`<div>มูลค่าหน่วยลงทุน (บาท/หน่วย): ${response.last_val}</div>`)
+                    $("#nav").append(`<div>มูลค่าหน่วยลงทุนของวันก่อนหน้า (บาท/หน่วย): ${response.previous_val}</div>`)
+                    $("#nav").append(`<div>เปอร์เซ็นต์: ${diff.toFixed(2)} %</div>`)
+                } else {
+                    console.log(response)
+                    var lastest = 0.0
+                    var previous = 0.0
+                    var sell = 0.0
+
+                    var diff = 0.0
+
+                    $("#nav").append(`<div>วันที่แก้ไขข้อมูลล่าสุด: - </div>`)
+                    $("#nav").append(`<div>วันที่ NAV: - </div>`)
+                    $("#nav").append(`<div>มูลค่าทรัพย์สินสุทธิ (บาท): - </div>`)
+                    $("#nav").append(`<div>มูลค่าหน่วยลงทุน (บาท/หน่วย): - </div>`)
+                    $("#nav").append(`<div>มูลค่าหน่วยลงทุนของวันก่อนหน้า (บาท/หน่วย): - </div>`)
+                    $("#nav").append(`<div>เปอร์เซ็นต์: - %</div>`)
+                }
 
             },
             error: function (xhr, status, error) {
@@ -58,7 +82,7 @@ function toThaiDateString(date) {
 
         return `${numOfDay} ${month} ${year} ` +
             `${hour}:${minutes}:${second} น.`;
-    }else{
+    } else {
         date = new Date()
         let monthNames = [
             "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน",
@@ -77,5 +101,5 @@ function toThaiDateString(date) {
         return `${numOfDay} ${month} ${year} ` +
             `${hour}:${minutes}:${second} น.`;
     }
-    
+
 }

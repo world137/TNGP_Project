@@ -1,11 +1,15 @@
+$(window).on('load', function() {
+    $('#exampleModalLong').modal('show');
+});
+
 $(function () {
     $("#insert_snackbar").load("../component/snackbar.html");
 })
 
 
-$("#analyze").on("click",function () {
+$("#analyze").on("click", function () {
     let citizenId = document.getElementById("search_citizen").value
-    if(citizenId.length != 13){
+    if (citizenId.length != 13) {
         warning_notification('รหัสบัตรประชาชนไม่ถูกต้อง')
         return
     }
@@ -19,13 +23,13 @@ function get_customer_data(citizenId) {
             type: "GET",
             dataType: "json",
             success: function (response) {
-                if(response.CitizenId == ""){
+                if (response.CitizenId == "") {
                     error_notification('ไม่พบหมายเลขบัตรประชาชน')
                     return
                 }
 
                 let id = response.CitizenId
-                localStorage.setItem("id",id)
+                localStorage.setItem("id", id)
                 window.location.href = "../../frontend/html/customerInfo.html"
             },
             error: function (xhr, status, error) {
