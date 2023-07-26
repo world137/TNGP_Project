@@ -1,5 +1,5 @@
 
-var fundArray = ["C0000000623"]
+var fundArray = ["M0497_2546","M0499_2559","M0697_2562","M0081_2555","M0429_2556","M0096_2545","M0175_2563","M0135_2563"]
 
 $(function () {
     $("#insert_navbar").load("../component/navbar.html");
@@ -74,6 +74,12 @@ $(function () {
         // Save the state of the checkbox to localStorage
         localStorage.setItem("dividend", JSON.stringify(this.checked));
     });
+    let nav_date = localStorage.getItem("nav_date")
+
+    for (let i = 0; i < fundArray.length; i++) {
+        
+        show_NAV(fundArray[i],nav_date)
+    }
 });
 
 $("#more_fund").on("click", function () {
@@ -87,4 +93,25 @@ function find(id,name_th,name_en) {
     localStorage.setItem("proj_name_en",name_en)
     window.location.href = "../../frontend/html/fundDetail.html" 
 
+}
+
+
+function show_NAV(proj_id, nav_date) {
+    if (proj_id != null && proj_id != undefined && nav_date != null && nav_date != undefined) {
+        $.ajax({
+            url: "/getNAV/" + proj_id + "/dailynav/" + nav_date,
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                console.log(response)
+                document.getElementById(proj_id).innerHTML = response.last_val
+                
+
+            },
+            error: function (xhr, status, error) {
+                error_notification('ไม่สามารถดึงข้อมูลได้')
+                console.error("Error:", error);
+            }
+        });
+    }
 }
