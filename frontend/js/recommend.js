@@ -1,5 +1,5 @@
 
-var fundArray = ["M0497_2546", "M0499_2559","M0697_2562","M0081_2555","M0429_2556" ,"M0124_2563","M0135_2563","M0077_2561","M0132_2563","M0176_2563"]
+var fundArray = ["M0497_2546", "M0499_2559", "M0697_2562", "M0081_2555", "M0429_2556", "M0124_2563", "M0135_2563", "M0077_2561", "M0132_2563", "M0176_2563"]
 var nav_date = localStorage.getItem("nav_date")
 $(function () {
     $("#insert_navbar").load("../component/navbar.html");
@@ -87,21 +87,26 @@ $(document).ready(function () {
 
     function updateCompareArea() {
         // Clear existing content
-        $(".selected_fund_card").empty();
+        // $(".selected_fund_card").empty();
+        $(".selected_data").empty();
+        $(".selected_button").empty();
 
+
+        
         // Add selected fund cards to the compare_area
 
         for (let i = 0; i < selectedFunds.length; i++) {
 
             const fundCard = selectedFunds[i];
             const cloneCard = fundCard.cloneNode(true);
-            console.log(cloneCard.querySelector(".data").querySelector(".data_id").innerHTML)
             // cloneCard.querySelector(".view_more").style.display = "none"; // Hide the "Select" button in the selected card
-            nav(cloneCard.querySelector(".data").querySelector(".data_id").innerHTML,nav_date,"#selected_fund_" + (i + 1))
+            nav(cloneCard.querySelector(".data").querySelector(".data_id").innerHTML, nav_date, "#selected_data_" + (i + 1))
+            show_fee(cloneCard.querySelector(".data").querySelector(".data_id").innerHTML,"#selected_data_" + (i + 1))
             // $("#selected_fund_" + (i + 1)).append(cloneCard);
-            $("#selected_fund_" + (i + 1)).append(cloneCard.querySelector(".data").querySelector(".data_id"), cloneCard.querySelector(".data").querySelector(".data_th"), cloneCard.querySelector(".data").querySelector(".data_en"));
-           
             
+            $("#selected_data_" + (i + 1)).append(cloneCard.querySelector(".data").querySelector(".data_short"),cloneCard.querySelector(".data").querySelector(".data_th"), cloneCard.querySelector(".data").querySelector(".data_risk"), cloneCard.querySelector(".data").querySelector(".data_return"), cloneCard.querySelector(".data").querySelector(".data_tax"));
+            $("#selected_button_" + (i + 1)).append(cloneCard.querySelector(".view_more"));
+
         }
     }
 
@@ -145,7 +150,7 @@ $(document).ready(function () {
                     updateCompareArea();
                 } else {
                     // Show a message that only two funds can be compared at a time
-                    warning_notification("You can only compare two funds at a time.");
+                    warning_notification("เลือกได้สูงสุดสองกองทุนเท่านั้น");
                 }
             }
         });
@@ -155,8 +160,11 @@ $(document).ready(function () {
         document.getElementById("compare_text").style.display = "flex"
 
         document.getElementById("reset_compare").style.display = "none"
+        
         selectedFunds = []; // Clear the selectedFunds array
         updateCompareArea(); // Update the compare_area to remove all selected fund cards
+        document.getElementById("selected_data_1").innerHTML = "ยังไม่ได้เลือก"
+        document.getElementById("selected_data_2").innerHTML = "ยังไม่ได้เลือก"
     });
 });
 
@@ -203,18 +211,112 @@ function nav(proj_id, nav_date, target) {
             dataType: "json",
             success: function (response) {
                 console.log(response)
-                var lastest = parseFloat(response.last_val)
-                var previous = parseFloat(response.previous_val)
-                var sell = parseFloat(response.amc_info[0].sell_price)
+                if (response != undefined && response != "" && response != []) {
+                    if (response.amc_info != null) {
+                        var lastest = parseFloat(response.last_val)
+                        var previous = parseFloat(response.previous_val)
+                        var sell = parseFloat(response.amc_info[0].sell_price)
 
-                var diff = (((lastest - sell) / lastest) * 100)
+                        var diff = (((lastest - sell) / lastest) * 100)
+                    } else {
+                        console.log(response)
+                        var lastest = parseFloat(response.last_val)
+                        var previous = parseFloat(response.previous_val)
+                        var sell = previous
 
-                $(target).append(`<div>วันที่แก้ไขข้อมูลล่าสุด: ${toThaiDateString(response.last_upd_date)}</div>`)
-                $(target).append(`<div>วันที่ NAV: ${toThaiDateString(response.nav_date)}</div>`)
-                $(target).append(`<div>มูลค่าทรัพย์สินสุทธิ (บาท): ${response.net_asset.toLocaleString("en-US")}</div>`)
-                $(target).append(`<div>มูลค่าหน่วยลงทุน (บาท/หน่วย): ${response.last_val}</div>`)
-                $(target).append(`<div>มูลค่าหน่วยลงทุนของวันก่อนหน้า (บาท/หน่วย): ${response.previous_val}</div>`)
-                $(target).append(`<div>เปอร์เซ็นต์: ${diff.toFixed(2)} %</div>`)
+                        var diff = (((lastest - sell) / lastest) * 100)
+                    }
+                    $(target).append(`<div>มูลค่าหน่วยลงทุน (บาท/หน่วย): ${response.last_val}</div>`)
+                }
+
+
+
+            },
+            error: function (xhr, status, error) {
+                error_notification('ไม่สามารถดึงข้อมูลได้')
+                console.error("Error:", error);
+            }
+        });
+    }
+}
+
+function show_fee(proj_id,target) {
+    if (proj_id != null && proj_id != undefined) {
+        $.ajax({
+            url: "/getFee/" + proj_id + "/fee",
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                console.log("Fee = " + response)
+
+                data = response;
+
+                $("#fee").empty();
+
+                var feeClassAHeader = ""
+                var feeClassDHeader = ""
+                var feeClassEHeader = ""
+                var feeClassless = ""
+                var feeClassA = ""
+                var feeClassD = ""
+                var feeClassE = ""
+
+                for (let index = 0; index < data.length; index++) {
+                    if (data[index].rate != "-" && data[index].class_abbr_name.endsWith("-")) {
+                        feeClassless += "<div>"+data[index].fee_type_desc + ": " + data[index].rate + "</div>";
+                    }
+                    else if (data[index].rate != "-" && (data[index].class_abbr_name.endsWith("-A") || data[index].class_abbr_name.endsWith("(A)"))) {
+                        feeClassAHeader = data[index].class_abbr_name;
+                        feeClassA += "<div>"+data[index].fee_type_desc + ": " + data[index].rate +"</div>";
+                    }
+                    else if (data[index].rate != "-" && (data[index].class_abbr_name.endsWith("-D") || data[index].class_abbr_name.endsWith("(D)"))) {
+                        feeClassDHeader = data[index].class_abbr_name;
+                        feeClassD += "<div>"+data[index].fee_type_desc + ": " + data[index].rate +"</div>";
+                    }
+                    else if (data[index].rate != "-" && (data[index].class_abbr_name.endsWith("-E") || data[index].class_abbr_name.endsWith("(E)"))) {
+                        feeClassEHeader = data[index].class_abbr_name;
+                        feeClassE += "<div>"+data[index].fee_type_desc + ": " + data[index].rate +"</div>";
+                    }
+                }
+
+                if(feeClassless != ""){
+                    console.log("feeClassless",feeClassless)
+                    $(target).append(feeClassless)
+                    // var havingFeeBlock = document.getElementById('feeblockClassless')
+                    // var havingClass = document.getElementById('feeClassless')
+                    // havingFeeBlock.style.display = 'block'
+                    // havingClass.style.display = 'inline'
+                }
+
+                if(feeClassAHeader != "" && feeClassA != ""){
+                    console.log("feeClassA",feeClassA)
+                    $(target).append("<center><b>"+feeClassAHeader+"</b><center>")
+                    $(target).append(feeClassA)
+                    // var havingFeeBlock = document.getElementById('feeblockClassA')
+                    // var havingClass = document.getElementById('feeClassA')
+                    // havingFeeBlock.style.display = 'block'
+                    // havingClass.style.display = 'inline'
+                }
+
+                if(feeClassDHeader != "" && feeClassD != ""){
+                    console.log("feeClassD",feeClassD)
+                    $(target).append("<center><b>"+feeClassDHeader+"</b><center>")
+                    $(target).append(feeClassD)
+                    // var havingFeeBlock = document.getElementById('feeblockClassD')
+                    // var havingClass = document.getElementById('feeClassD')
+                    // havingFeeBlock.style.display = 'block'
+                    // havingClass.style.display = 'inline'
+                }
+
+                if(feeClassEHeader != "" && feeClassE != ""){
+                    console.log("feeClassE",feeClassE)
+                    $(target).append("<center><b>"+feeClassEHeader+"</b><center>")
+                    $(target).append(feeClassE)
+                    // var havingFeeBlock = document.getElementById('feeblockClassE')
+                    // var havingClass = document.getElementById('feeClassE')
+                    // havingFeeBlock.style.display = 'block'
+                    // havingClass.style.display = 'inline'
+                }
 
             },
             error: function (xhr, status, error) {
