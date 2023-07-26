@@ -18,4 +18,13 @@ type Customer struct {
 	ExperienceTest bool
 	Answer         [12]string
 	PersonalScore  int
+	Age            int
+	Gender         string
+	ProvinceName   string
+	Sector         string
+	MarriageStatus string
+	Education      string
+	Branch_name    string
+	SuitDate       string
+	MainAccount    string
 }
