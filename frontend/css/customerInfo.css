@@ -243,3 +243,13 @@
     padding: 20px;
     margin-top: 20px;
 }
+
+#investment-chart-container {
+    /* Set the position and alignment of the container */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Set the desired height of the container */
+    height: 400px;
+}
