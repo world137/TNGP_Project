@@ -28,6 +28,7 @@ func main() {
 	controller.FundCompare()
 	controller.Fee()
 	controller.SetBalance(db)
+	controller.FundFullPort()
 	// controller.SetpersonalScore(db)
 
 	// Start the server on port 8080
