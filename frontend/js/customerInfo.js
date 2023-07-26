@@ -4,6 +4,8 @@ $(function () {
     let id = localStorage.getItem("id")
     getUser(id)
 })
+var fundName = []
+var fundAmount = []
 function getUser(citizenId) {
     if (citizenId != null && citizenId != undefined) {
         $.ajax({
@@ -27,7 +29,7 @@ function getUser(citizenId) {
                 let risk = response.Risk
                 let PersonalScore = response.PersonalScore
                 let age = response.Age
-                let gender = response.Gender 
+                let gender = response.Gender
                 let province = response.ProvinceName
                 let sector = response.Sector
                 let marriageStatus = response.MarriageStatus
@@ -38,32 +40,39 @@ function getUser(citizenId) {
 
                 const summary = {};
                 funds = []
-                for (let i = 0; i < account[1].FundProfile.length; i++){
+                fundArr = []
+                for (let i = 0; i < account[1].FundProfile.length; i++) {
                     j = i
                     funds.push(account[1].FundProfile[i])
+                    fundArr.push(account[1].FundProfile[i])
                 }
+                console.log(fundArr)
 
-	
                 // Loop through the funds and aggregate the values
                 funds.forEach((fund) => {
                     if (!summary[fund.Fund_name]) {
-                    summary[fund.Fund_name] = {
-                        TotalAmount: fund.Amount,
-                        TotalValue: fund.Value,
-                    };
+                        summary[fund.Fund_name] = {
+                            TotalAmount: fund.Amount,
+                            TotalValue: fund.Value,
+                        };
                     } else {
-                    summary[fund.Fund_name].TotalAmount += fund.Amount;
-                    summary[fund.Fund_name].TotalValue += fund.Value;
+                        summary[fund.Fund_name].TotalAmount += fund.Amount;
+                        summary[fund.Fund_name].TotalValue += fund.Value;
                     }
                 });
-               
+                // console.log(fundArr[1].Fund_name)
+                for (let i = 0; i < fundArr.length; i++) {
+                    fundName.push(fundArr[i].Fund_name)
+                    fundAmount.push(parseFloat(fundArr[i].Value))
+                }
+                getGraph()
 
                 // Print the summarized data
                 for (const fundName in summary) {
-                    $("#transaction").append(`<div>กองทุน: ${fundName} Total Amount: ${summary[fundName].TotalAmount}Total Value: ${summary[fundName].TotalValue.toFixed(2)}</div>`)
+                    $("#transaction").append(`<div>กองทุน: ${fundName} จำนวนหน่วย: ${summary[fundName].TotalAmount} ปริมาณที่ลงทุน: ${summary[fundName].TotalValue.toFixed(2)}</div>`)
                     console.log(`Fund Name: ${fundName}`);
-                    console.log(`Total Amount: ${summary[fundName].TotalAmount}`);
-                    console.log(`Total Value: ${summary[fundName].TotalValue.toFixed(2)}\n`);
+                    console.log(`จำนวนหน่วย: ${summary[fundName].TotalAmount}`);
+                    console.log(`ปริมาณที่ลงทุน: ${summary[fundName].TotalValue.toFixed(2)}\n`);
                 }
 
                 document.getElementById("name").innerHTML = "ชื่อ : " + name
@@ -81,12 +90,12 @@ function getUser(citizenId) {
                 text_acc = "save_acc"
                 for (let i = 0; i < showAccount.length; i++) {
                     console.log(showAccount[i])
-                    if (showAccount[i].AccountType == 'ออมทรัพย์'){
+                    if (showAccount[i].AccountType == 'ออมทรัพย์') {
                         text_acc = "save_acc"
-                    }else{
+                    } else {
                         text_acc = "fund_acc"
                     }
-                    $("#account_data").append('<div class="'+ text_acc +'" id="account_card"><h5>'+showAccount[i].AccountNumber+'</h5><h6>' + showAccount[i].AccountType +'</h6></div>')
+                    $("#account_data").append('<div class="' + text_acc + '" id="account_card"><h5>' + showAccount[i].AccountNumber + '</h5><h6>' + showAccount[i].AccountType + '</h6></div>')
                 }
 
                 if (PersonalScore == 1) {
@@ -96,15 +105,15 @@ function getUser(citizenId) {
                 }
                 console.log(risk)
 
-                if(risk == 1){
+                if (risk == 1) {
                     risktext = "เสี่ยงต่ำ"
-                }else if(risk >= 2 && risk <=4){
+                } else if (risk >= 2 && risk <= 4) {
                     risktext = "เสี่ยงปานกลางค่อนข้างต่ำ"
-                }else if(risk == 5){
+                } else if (risk == 5) {
                     risktext = "เสี่ยงปานกลางค่อนข้างสูง"
-                }else if(risk == 6 || risk == 7){
+                } else if (risk == 6 || risk == 7) {
                     risktext = "เสี่ยงสูง"
-                }else if(risk == 8){
+                } else if (risk == 8) {
                     risktext = "เสี่ยงสูงมาก"
                 }
 
@@ -114,7 +123,7 @@ function getUser(citizenId) {
                     document.getElementById("risk_data").innerHTML = "N/A"
                 } else {
                     console.log("b")
-                    
+
 
                     document.getElementById("risk_data").innerHTML = risktext + text
 
@@ -163,8 +172,67 @@ $("#fund_recommend_btn").on("click", function () {
     // Output the result (for demonstration purposes)
     console.log("Is dividend checked?", isDividendChecked);
     console.log("Is tax reduce checked?", isTaxReduceChecked);
-    localStorage.setItem("dividend",isDividendChecked)
-    localStorage.setItem("taxreduce",isTaxReduceChecked)
+    localStorage.setItem("dividend", isDividendChecked)
+    localStorage.setItem("taxreduce", isTaxReduceChecked)
 
     window.location.href = "../../frontend/html/recommend.html"
 })
+
+const investmentData = [
+    { label: 'Investment 1', value: 250.00 },
+    { label: 'Investment 2', value: 737.00 },
+    { label: 'Investment 3', value: 199.00 },
+];
+
+// Get the canvas element
+const ctx = document.getElementById('investmentPieChart').getContext('2d');
+console.log(fundName)
+console.log(fundAmount)
+
+// Create the pie chart
+function getGraph() {
+    const investmentPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: fundName,
+            datasets: [{
+                data: fundAmount,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)',
+                    'rgba(255, 159, 64, 0.6)',
+                    'rgba(100, 200, 180, 0.6)',
+                    'rgba(220, 100, 120, 0.6)',
+                    'rgba(80, 120, 220, 0.6)',
+                    'rgba(200, 80, 150, 0.6)',
+                ],
+                borderWidth: 1,
+            }],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+                display: true,
+                text: 'Investment Pie Chart',
+            },
+            legend: {
+                display: true, // Set to true to display the legend
+            },
+            tooltips: {
+                enabled: true, // Set to true to enable tooltips
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        // Get the data value and format it with commas
+                        const value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                        return value.toLocaleString();
+                    }
+                }
+            },
+        },
+    });
+}
+
