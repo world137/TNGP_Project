@@ -26,6 +26,8 @@ function getUser(citizenId) {
                 let salary = response.MinIncome + " - " + response.MaxIncome
                 let risk = response.Risk
                 let PersonalScore = response.PersonalScore
+                account = response.Account
+                console.log(account)
 
                 document.getElementById("name").innerHTML = "ชื่อ : " + name
                 document.getElementById("tel").innerHTML = "เบอร์โทร : " + tel

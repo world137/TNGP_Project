@@ -27,6 +27,7 @@ func main() {
 
 	controller.FundCompare()
 	controller.Fee()
+	controller.SetBalance(db)
 	// controller.SetpersonalScore(db)
 
 	// Start the server on port 8080
@@ -66,6 +67,7 @@ func createCustomer(stroage provider.StroageProvider) {
 					AccountName:    "สมชาย",
 					AccountType:    "ออมทรัพย์",
 					AccountBalance: 10000,
+					FundProfile:    []model.FundProfile{},
 				},
 				{
 					AccountId:      "001b",
@@ -73,6 +75,8 @@ func createCustomer(stroage provider.StroageProvider) {
 					AccountName:    "สมชาย",
 					AccountType:    "กองทุน",
 					AccountBalance: 10000,
+					FundProfile:    []model.FundProfile{},
+
 				},
 			},
 		},
@@ -108,6 +112,7 @@ func createCustomer(stroage provider.StroageProvider) {
 					AccountName:    "สมหญิง",
 					AccountType:    "ออมทรัพย์",
 					AccountBalance: 10500,
+					FundProfile:    []model.FundProfile{},
 				},
 				{
 					AccountId:      "001d",
@@ -115,6 +120,7 @@ func createCustomer(stroage provider.StroageProvider) {
 					AccountName:    "สมหญิง",
 					AccountType:    "กองทุน",
 					AccountBalance: 66000,
+					FundProfile:    []model.FundProfile{},
 				},
 			},
 		},
