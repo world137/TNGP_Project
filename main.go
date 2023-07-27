@@ -24,7 +24,7 @@ func main() {
 	controller.Risk()
 	controller.DividendPolicy()
 	controller.FeederFund()
-
+	controller.GetFiveMost()
 	controller.FundCompare()
 	controller.Fee()
 	controller.SetBalance(db)
