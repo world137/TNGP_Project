@@ -253,3 +253,7 @@
     /* Set the desired height of the container */
     height: 400px;
 }
+
+#user_text{
+    margin: 20px;
+}
