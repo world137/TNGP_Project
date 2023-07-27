@@ -18,7 +18,7 @@ function calculate(){
     total_nav = localStorage.getItem("nav_price")
     console.log(total_nav)
     sum = parseFloat(str_price) / parseFloat(total_nav)
-    document.getElementById("total_price").innerHTML = 'จำนวนหน่วย:' + sum.toFixed(2)
+    // document.getElementById("total_price").innerHTML = 'จำนวนหน่วย:' + sum.toFixed(2)
     
 }
 function getUser(citizenId,fund_name_th) {
