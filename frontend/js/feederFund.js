@@ -16,7 +16,7 @@ function get_FeederFund(proj_id){
             success: function (response) {
                 console.log(response)
                 if (response.main_feeder_fund == ""){
-                    data = "ไม่ระบุ"
+                    data = "ไม่มีกองทุนหลัก"
                 }else{
                     data = response.main_feeder_fund
                 }

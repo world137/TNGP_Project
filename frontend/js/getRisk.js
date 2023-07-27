@@ -20,7 +20,7 @@ function show_risk(proj_id) {
 
                 switch (response.risk_spectrum) {
                     case "-":
-                        risk = "ไม่ทราบค่า"
+                        risk = "ไม่ระบุ"
                         break;
                     case "RS1":
                         risk = "ความเสี่ยงระดับ 1"
@@ -41,7 +41,7 @@ function show_risk(proj_id) {
                     case "RS8":
                         risk = "ความเสี่ยงระดับ 8+"                                   
                     default:
-                        risk = "ไม่ทราบค่า"
+                        risk = "ไม่ระบุ"
                         break
                 }
 

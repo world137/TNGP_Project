@@ -29,10 +29,10 @@ function get_dividend(proj_id){
 
 function Translate(res){
     if (res == "Y"){
-        return "มี"
+        return "จ่าย"
     }
     else{
-        return "ไม่มี"
+        return "ไม่จ่าย"
     }
 }
 

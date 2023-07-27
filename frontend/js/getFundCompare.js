@@ -15,7 +15,38 @@ function show_FundCompare(proj_id) {
             success: function (response) {
                 console.log(response)
 
-                $("#fundcompare").append(`<div>กลุ่มกองทุน: ${response.fund_compare}</div>`)
+                type = response.fund_compare
+                translation = ""
+                switch (type){
+                    case 'EG':
+                        translation = 'Equity General';
+                        break;
+                    case 'MTGB':
+                        translation = 'Mid Term General Bond';
+                        break;
+                    case 'LTGB':
+                        translation = 'Long Term General Bond';
+                        break
+                    case 'AA':
+                        translation = 'Aggressive Allocation'
+                        break
+                    case 'JPEQ':
+                        translation = 'Japan Equity'
+                        break
+                    case 'FPF': 
+                        translation = 'Fund of Property fund'     
+                        break
+                    case 'ELCE':
+                        translation = 'Equity Large Cap'     
+                        break                   
+                    default:
+                        translation = type
+                }
+
+                
+
+                
+                $("#fundcompare").append(`<div>กลุ่มกองทุน: ${translation}</div>`)
 
             },
             error: function (xhr, status, error) {
